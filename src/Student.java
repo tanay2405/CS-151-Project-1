@@ -41,4 +41,38 @@ public class Student {
         enrollments.remove(e);
         e.setStudent(null);
     }
+    
+    public boolean enrollCourse(Course course) {
+        Enrollment newEnrollment = new Enrollment(this, course);
+        if (enrollments.size() >= 6) {  
+            System.out.println("Enrollment Error: Max Courses Exceeded");
+            return false;
+        }
+        if (enrollments.contains(newEnrollment)) {
+            System.out.println("Enrollment Error: Already Enrolled");
+            return false;
+        }
+        addEnrollment(newEnrollment);
+        System.out.println("Enrolled Successfully!");
+        return true;
+    }
+    
+    public boolean dropCourse(Course course) {
+        for (Enrollment e : enrollments) {
+            if (e.getCourse().equals(course)) {
+                removeEnrollment(e);
+                System.out.println("Course Dropped Successfully!");
+                return true;
+            }
+        }
+        System.out.println("Course Not Found");
+        return false;
+    }
+
+    public void listEnrolledCourses() {
+        if (enrollments.isEmpty()) {
+            System.out.println(" Not enrolled in any courses.");
+            return;
+        }
+    }
 }
