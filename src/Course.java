@@ -10,6 +10,8 @@ public class Course {
 
     private Integer credits;
 
+    private Integer professorID;
+
     private Set<Enrollment> enrollments = new LinkedHashSet<>();
 
     public Course() {}
@@ -18,7 +20,12 @@ public class Course {
         this.courseName = courseName;
         this.credits = credits;
     }
-
+    public void setProfessorID(int professorID) {
+        this.professorID = professorID;
+    }
+    public Integer getProfessorID() {
+        return professorID;
+    }
     public Integer getCourseId() { return courseId; }
     public void setCourseId(Integer courseId) { this.courseId = courseId; }
 
