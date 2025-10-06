@@ -47,10 +47,12 @@ public class professors {
 
     public void addProfessor(Course c)
     {
-        if (c != null)
+        if (c == null)
         {
-            assignProfessor.add(c);
-            c.setProfessorID(this);
+            return;
+        }
+        assignProfessor.add(c);
+        c.setProfessorID(this.professorID);
         }
         
     }
@@ -60,10 +62,18 @@ public class professors {
         if (c != null && assignProfessor.contains(c))
         {
             assignProfessor.remove(c);
-            c.setProfessorID(null);
+            c.setProfessorID(-1);
         }   
     }
 
-  
+     public boolean professorExists(int professorID) {
+        for (Course c : assignProfessor) {
+            if (c.getProfessorID() == professorID) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }
+
