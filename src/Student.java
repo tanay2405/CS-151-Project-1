@@ -74,5 +74,12 @@ public class Student {
             System.out.println(" Not enrolled in any courses.");
             return;
         }
+        System.out.println("Enrolled Courses:");
+        for (Enrollment e: enrollments) {
+            Course c = e.getCourse();
+            if (c != null) {
+                System.out.println(c.getCourseName() + " (" + c.getCredits() + " credits)");
+            }
+        }
     }
 }
