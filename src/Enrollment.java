@@ -6,6 +6,8 @@ public class Enrollment {
 
     private Student student;
 
+    private Professor professor;
+
     private Course course;
 
     private Grade grade;
@@ -22,6 +24,9 @@ public class Enrollment {
 
     public Student getStudent() { return student; }
     public void setStudent(Student student) { this.student = student; }
+
+    public Student getProfessor() { return professor; }
+    public void setProfessor(Professor professor) { this.professor = professor; }
 
     public Course getCourse() { return course; }
     public void setCourse(Course course) { this.course = course; }
