@@ -12,8 +12,6 @@ public class Enrollment {
 
     private Grade grade;
 
-    public Enrollment() {}
-
     public Enrollment(Student student, Course course) {
         this.student = student;
         this.course = course;
