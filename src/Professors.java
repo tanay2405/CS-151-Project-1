@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 import java.util.LinkedHashSet;
 
-public class professors {
+public class Professors {
 
     private int professorID;
     private String professorName;
@@ -76,4 +76,5 @@ public class professors {
     }
     
 }
+
 
