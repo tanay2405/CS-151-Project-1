@@ -31,4 +31,19 @@ public class Grades {
         }
     }
 
+    public double curveGrade(int gradeID)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a decimal number for curving grade: ");
+        double curveFactor = sc.nextDouble();
+        while (!sc.hasNextDouble()) {
+            System.out.println("Please enter a decimal number.");
+            sc.next();
+        }
+        double curvedGrade = gradeID * curveFactor;
+        sc.close();
+        return curvedGrade;
+    }
+
+
 
