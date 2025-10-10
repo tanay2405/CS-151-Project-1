@@ -15,7 +15,8 @@ public class Grades {
         return gradeID;
     }
 
-    public String convertGradeID(int gradeID) {
+    public String convertGradeID(int gradeID)
+    {
         if (gradeID < 0 || gradeID > 100) {
             return "Invalid gradeID";
         } else if (gradeID >= 90) {
@@ -58,6 +59,23 @@ public class Grades {
         sc.close();
         return newGrade;
     }
+
+    public boolean convertToPassFail(int gradeID, Course courselink) 
+    {
+        if (!courselink.isPassFail()) {
+            System.out.println(courselink.getCourseName() + "is not graded on a pass/fail scale.");
+            return false;
+        } 
+        if (gradeID >= 60) {
+            System.out.println("You passed the course: " + courselink.getCourseName());
+            return true;
+        } else {
+            System.out.println("You failed the course: " + courselink.getCourseName());
+            return false;
+        }
+
+    }
+
 
 
 
