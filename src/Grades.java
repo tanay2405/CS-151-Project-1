@@ -45,5 +45,20 @@ public class Grades {
         return curvedGrade;
     }
 
+    public int extraCredit(int gradeID)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter amount of extra credit points: ");
+        int extraPoints = sc.nextInt();
+        while (!sc.hasNextInt()) {
+            System.out.println("Please enter an integer number.");
+            sc.next();
+        }
+        int newGrade = gradeID + extraPoints;
+        sc.close();
+        return newGrade;
+    }
+
+
 
 
