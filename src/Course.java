@@ -18,4 +18,45 @@ public class Course {
         this.passFail = passFail;
     }
 
+     public void setCourseID(int courseId) {
+        this.courseID = courseId;
+    }
+
+    public int getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setPassFail(boolean passFail) {
+        this.passFail = passFail;
+    }
+
+    public boolean isPassFail() {
+        return passFail;
+    }
+
+
 }
