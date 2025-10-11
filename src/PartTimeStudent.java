@@ -4,10 +4,11 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class FullTimeStudent extends Student {
+public class PartTimeStudent extends Student {
     // Attributes
-    public static final int COURSE_LIMIT = 4;  // full-time limit (informational)
+    public static final int COURSE_LIMIT = 4;  // part-time limit (informational)
     public Map<String, Integer> Schedule = new HashMap<>();
+    
     private static Course c1  = new Course(1001, "CMPE120", 3, 530, true);
     private static Course c2  = new Course(1002, "CMPE121", 4, 800, true);
     private static Course c3  = new Course(1003, "CMPE122", 3, 930, true);
@@ -34,9 +35,11 @@ public class FullTimeStudent extends Student {
         c11, c12, c13, c14, c15,
         c16, c17, c18, c19, c20
     };
+    
+    //int courseID, String courseName, int credits, int time, boolean passFail
 
     // super() attribute (constructor delegates to Student)
-    protected FullTimeStudent(Integer studID, String name, String email) {
+    protected PartTimeStudent(Integer studID, String name, String email) {
         super(studID, name, email);
     }
 
@@ -46,7 +49,6 @@ public class FullTimeStudent extends Student {
         throw new UnsupportedOperationException("Unimplemented method 'printInfo'");
     }
 
-    // INHERITED Methods (declare overrides; no implementations)
     @Override
     public boolean addSchedule(Course course, Professor professor){
         return true;
@@ -58,7 +60,7 @@ public class FullTimeStudent extends Student {
     };
 
     @Override
-    public boolean deleteSchedule(int index){
+    public boolean deleteSchedule(int windex){
         return true;
     };
 
@@ -68,10 +70,11 @@ public class FullTimeStudent extends Student {
             System.out.println(c.getCourseName());
         }
     }
+    
 
-    //Method 1
+    //Method 2
     public void dropCourses() {
-        final int MAX = 6;
+        final int MAX = 4;
         showCourseAvailability();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses to drop. Press ENTER on course name to finish early.");
@@ -85,7 +88,7 @@ public class FullTimeStudent extends Student {
                 this.getCourses()[count] = null;
                 this.getGrades()[count] = null;
             } else {
-                System.out.println("That course is not in your schedule. Try a different one.");
+                System.out.println("That course is already in your schedule. Try a different one.");
                 continue;
             }
             count++;
@@ -93,11 +96,10 @@ public class FullTimeStudent extends Student {
         System.out.println("\nYou removed " + count + " course(s).");
     }
     
-    //Method 2
     public void applyForCourses() {
-        final int MAX = 6;
+        final int MAX = 4;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter up to " + MAX + " courses. Press ENTER on course name to finish early.");
+        System.out.println("Enter up to " + MAX + " courses. Press ENTER on course name to finish early."); 
         int count = 0;
         while (count < MAX) {
             System.out.print("Course ID" + (count + 1) + ": ");
@@ -107,17 +109,16 @@ public class FullTimeStudent extends Student {
                 System.out.println("That course is already in your schedule. Try a different one.");
                 continue;
             }
+    
             this.getCourses()[count] = getCourseObjectFromCourseID(course);
             System.out.println("Added: " + course);
             count++;
         }
         System.out.println("\nYou added " + count + " course(s).");
     }
+    
 
     // “+2” extra method placeholders
-    public void extraMethod1(){};
-    public void extraMethod2(){};
-
 
     public boolean checkIfCourseValid(String course) {
         for (Course g : this.getCourses()) {
@@ -136,6 +137,9 @@ public class FullTimeStudent extends Student {
         }
         return null;
     }
+
+    public void extraMethod1(){};
+    public void extraMethod2(){};
 
 
 }
