@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class FullTimeStudent extends Student {
     // Attributes
-    public static final int COURSE_LIMIT = 6;  // full-time limit (informational)
+    public static final int COURSE_LIMIT = 4;  // full-time limit (informational)
     public Map<String, Integer> Schedule = new HashMap<>();
     private static Course c1  = new Course(1001, "CMPE120", 3, 530, true);
     private static Course c2  = new Course(1002, "CMPE121", 4, 800, true);
