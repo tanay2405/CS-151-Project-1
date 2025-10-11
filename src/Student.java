@@ -5,31 +5,37 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Abstract Student class implementing the Person role.
- * 
- * Attributes:
- * - Grades[6], Professors[6], Courses[6]
- * - studID, name, email
- * 
- * Inherited (from Person): printInfo(), submitAssignment()
- * 
- * Methods provided:
- * - calculateGPA()
- * - addSchedule(course, professor)
- * - checkSchedule()
- * - deleteSchedule(index)
- * 
- * Utility extras:
- * - setGrade(index, grade)
- * - getGrade/indexed getters
- */
 public abstract class Student implements Person {
     public static final int MAX_SLOTS = 6;
+    Student Aarav   = new FullTimeStudent(10044556, "Aarav", "aarav.baphna@gmail.com");
+    Student Tanay   = new FullTimeStudent(10044558, "Tanay", "tanay.patel@example.com");
+    Student Srihan  = new FullTimeStudent(10044559, "Srihan", "srihan.rao@example.com");
+    Student Maya    = new FullTimeStudent(10044560, "Maya", "maya.kapoor@example.com");
+    Student Priya   = new FullTimeStudent(10044561, "Priya", "priya.shah@example.com");
+    Student Jordan  = new FullTimeStudent(10044562, "Jordan", "jordan.lee@example.com");
+    Student Alex    = new FullTimeStudent(10044563, "Alex", "alex.kim@example.com");
+    Student Sam     = new FullTimeStudent(10044564, "Sam", "sam.nguyen@example.com");
+    Student Nikhil  = new FullTimeStudent(10044565, "Nikhil", "nikhil.desai@example.com");
+    Student Anya    = new FullTimeStudent(10044566, "Anya", "anya.singh@example.com");
+    Student Zoe     = new FullTimeStudent(10044567, "Zoe", "zoe.martinez@example.com");
+    Student Liam    = new FullTimeStudent(10044568, "Liam", "liam.johnson@example.com");
+    Student Noah    = new PartTimeStudent(10044569, "Noah", "noah.roberts@example.com");
+    Student Emma    = new PartTimeStudent(10044570, "Emma", "emma.brown@example.com");
+    Student Olivia  = new PartTimeStudent(10044571, "Olivia", "olivia.davis@example.com");
+    Student Ethan   = new PartTimeStudent(10044572, "Ethan", "ethan.wilson@example.com");
+    Student Mia     = new PartTimeStudent(10044573, "Mia", "mia.torres@example.com");
+    Student Sophia  = new PartTimeStudent(10044574, "Sophia", "sophia.garcia@example.com");
+    Student Ava     = new PartTimeStudent(10044575, "Ava", "ava.clark@example.com");
+    Student Lucas   = new PartTimeStudent(10044576, "Lucas", "lucas.ramirez@example.com");
+    Student Isabel  = new PartTimeStudent(10044577, "Isabel", "isabel.lopez@example.com");
+    Student Mateo   = new PartTimeStudent(10044578, "Mateo", "mateo.hernandez@example.com");
+    Student Chloe   = new PartTimeStudent(10044579, "Chloe", "chloe.king@example.com");
+    Student Arjun   = new PartTimeStudent(10044580, "Arjun", "arjun.mehta@example.com");
 
     private final Integer studID;
     private String name;
     private String email;
+    private Double GPA;
 
     private final Grades[] grades = new Grades[MAX_SLOTS];
     private final Professor[] professors = new Professor[MAX_SLOTS];
@@ -40,86 +46,49 @@ public abstract class Student implements Person {
         this.studID = studID;
         this.name = name;
         this.email = email;
+        this.GPA = 0.0;
     }
     public static void main(String[] args) {
         System.out.println("Hello, world!");
-        Student Kyle = new FullTimeStudent(10044556, "Aarav", "aarav.baphna@gmail.com");
     }
 
-    // -------------------------
-    // Required business methods
-    // -------------------------
-
-    /**
-     * Compute GPA on a 4.0 scale from the current Grades array.
-     * Letter grades contribute; Pass/Fail does not affect GPA.
-     * Null entries are ignored.
-     */
+    //Method 1
     public double calculateGPA() {
+        int count = 0;
         double total = 0.0;
         List<Double> list = new ArrayList<>();
-
         for (Grades g : grades) {
             if (g == null) continue;
-            String t = g.convertGradeID(g.getGradeID());
-
+            String t = g.convertGradeID(g.getGradeID(), this.getCourses()[count]);
             // Treat "Pass"/"Fail" (or any non-letter) as not counted for GPA
             Double pts = letterToPoints(t);
             if (pts != null) {
                 list.add(pts);
             }
+            count++;
         }
         for (Double pointer : list) {
             total += pointer;
         }
-        
+        this.setGPA(total/list.size());
         return total/list.size();
     }
 
-    /**
-     * Add a course+professor to the first available slot.
-     * Grade starts null. Returns true if added, false if schedule is full.
-     */
+    // Method 2
     public abstract boolean addSchedule(Course course, Professor professor);
     
+    // Method 3
+    public abstract String checkSchedule();
 
-    /**
-     * Returns a human-readable summary of all 6 slots.
-     */
-    public String checkSchedule() {
-        return "";
-    }
-
-    /**
-     * Remove the course/professor/grade at the given index (0..5).
-     * Returns true if something was removed, false if it was already empty.
-     */
+    // Method 4
     public abstract boolean deleteSchedule(int index);
     
-
-    // -------------------------
-    // Helpful utilities
-    // -------------------------
-
-    /**
-     * Assign or replace a grade for a scheduled course.
-     */
-    public void submitAssignment(int index) {
-        validateIndex(index);
-        if (courses[index] == null) {
-            throw new IllegalStateException("No course scheduled at index " + index);
-        }
-        grades[index].setGradeID(grades[index].getGradeID() + 10); // may be null to clear
+    
+    public void submitAssignment(int index) { // NEEDS TO BE IMPLEMENTED
+        grades[index].setGradeID(grades[index].getGradeID() + 10);
     }
 
-    private void validateIndex(int i) {
-        if (i < 0 || i >= MAX_SLOTS) throw new IndexOutOfBoundsException("index must be 0..5");
-    }
-
-    /**
-     * Map common letter grades to GPA points.
-     * Returns null for non-letter (e.g., Pass/Fail).
-     */
+    
     private Double letterToPoints(String letter) {
         if (letter == null) return null;
         switch (letter) {
@@ -141,16 +110,13 @@ public abstract class Student implements Person {
         }
     }
 
-    
-
-    // -------------------------
-    // Getters / setters
-    // -------------------------
     public Integer getStudID() { return studID; }
     public String getName() { return name; }
     public String getEmail() { return email; }
+    public Double getGPA() {return GPA; }
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
+    public void setGPA(Double GPA) {this.GPA = GPA; } 
 
     public Grades[] getGrades() { return Arrays.copyOf(grades, grades.length); }
     public Professor[] getProfessors() { return Arrays.copyOf(professors, professors.length); }
