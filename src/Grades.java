@@ -5,10 +5,14 @@ import java.util.Scanner;
 public class Grades {
     private int gradeID;
 
+    private String gradeLetterPassFail;
+
     public Grades(int gradeID) {
         this.gradeID = gradeID;
+        this.gradeLetterPassFail = "NA";
     }
 
+    // GETTERS AND SETTERS 
     public void setGradeID(int gradeID) {
         this.gradeID = gradeID;
     }
@@ -17,19 +21,57 @@ public class Grades {
         return gradeID;
     }
 
-    public String convertGradeID(int gradeID)
+    public void setGradeLetterPassFail(String gradeLetterPassFail) {
+        this.gradeLetterPassFail = gradeLetterPassFail;
+    }
+
+    public String getGradeLetterPassFail(){
+        return gradeLetterPassFail;
+    }
+
+    // Method 1
+    public String convertGradeID(int gradeID, Course courselink)
     {
         if (gradeID < 0) {
             return "Invalid gradeID";
-        } else if (gradeID >= 90) {
+        } else if (courselink.isPassFail()) {
+            setGradeLetterPassFail(convertGradeIDToPassFail(gradeID));
+            return convertGradeIDToPassFail(gradeID);
+        } else if (gradeID >= 93) {
+            setGradeLetterPassFail("A");
             return "A";
-        } else if (gradeID >= 80) {
+        } else if (gradeID >= 90) {
+            setGradeLetterPassFail("A-");
+            return "A-";
+        } else if (gradeID >= 87) {
+            setGradeLetterPassFail("B+");
+            return "B+";
+        } else if (gradeID >= 83) {
+            setGradeLetterPassFail("B");
             return "B";
-        } else if (gradeID >= 70) {
+        } else if (gradeID >= 80) {
+            setGradeLetterPassFail("B-");
+            return "B-";
+        } else if (gradeID >= 77) {
+            setGradeLetterPassFail("C+");
+            return "C+";
+        } else if (gradeID >= 73) {
+            setGradeLetterPassFail("C");
             return "C";
-        } else if (gradeID >= 60) {
+        } else if (gradeID >= 70) {
+            setGradeLetterPassFail("C-");
+            return "C-";
+        } else if (gradeID >= 67) {
+            setGradeLetterPassFail("D+");
+            return "D+";
+        } else if (gradeID >= 63) {
+            setGradeLetterPassFail("D");
             return "D";
+        } else if (gradeID >= 60) {
+            setGradeLetterPassFail("D-");
+            return "D-";
         } else {
+            setGradeLetterPassFail("F");
             return "F";
         }
     }
@@ -63,22 +105,17 @@ public class Grades {
         return newGrade;
     }
 
-    public boolean convertToPassFail(int gradeID, Course courselink) 
+    public String convertGradeIDToPassFail(int gradeID) 
     {
-        if (!courselink.isPassFail()) {
-            System.out.println(courselink.getCourseName() + "is not graded on a pass/fail scale.");
-            return false;
-        } 
         if (gradeID >= 70) {
-            System.out.println("You passed the course: " + courselink.getCourseName());
-            return true;
+            return "Pass";
         } else {
-            System.out.println("You failed the course: " + courselink.getCourseName());
-            return false;
+            return "Fail";
         }
 
     }
 }
+
 
 
 
