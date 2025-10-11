@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 public class Grades {
     private int gradeID;
 
@@ -17,7 +19,7 @@ public class Grades {
 
     public String convertGradeID(int gradeID)
     {
-        if (gradeID < 0 || gradeID > 100) {
+        if (gradeID < 0) {
             return "Invalid gradeID";
         } else if (gradeID >= 90) {
             return "A";
@@ -31,6 +33,7 @@ public class Grades {
             return "F";
         }
     }
+
 
     public double curveGrade(int gradeID)
     {
@@ -66,7 +69,7 @@ public class Grades {
             System.out.println(courselink.getCourseName() + "is not graded on a pass/fail scale.");
             return false;
         } 
-        if (gradeID >= 60) {
+        if (gradeID >= 70) {
             System.out.println("You passed the course: " + courselink.getCourseName());
             return true;
         } else {
@@ -75,6 +78,7 @@ public class Grades {
         }
 
     }
+}
 
 
 
