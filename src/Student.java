@@ -17,9 +17,9 @@ public abstract class Student implements Person {
     private Double GPA;
     private String major;
 
-    private final Grade[] grades = new Grade[MAX_SLOTS];
-    private final Professor[] professors = new Professor[MAX_SLOTS];
-    private final Course[] courses = new Course[MAX_SLOTS];
+    public final Grade[] grades = {new Grade(), new Grade(), new Grade(), new Grade(), new Grade(), new Grade()};
+    public final Professor[] professors = new Professor[MAX_SLOTS];
+    public final Course[] courses = {new Course(), new Course(), new Course(), new Course(), new Course(), new Course()};
 
     public Map<String, Integer> Schedule = new HashMap<>();
     public List<Course> roadmapCourseList = new ArrayList<>(); 
@@ -36,6 +36,8 @@ public abstract class Student implements Person {
     // MAIN METHOD
     public static void main(String[] args) {
         System.out.println("Hello, world!");
+        Aarav.printInfo();
+        Aarav.applyForCourses();
         Aarav.printInfo();
         
     }
