@@ -231,7 +231,7 @@ public class Professor implements Person  {
         }
     }
 
-        @Override
+    @Override
     public void submitAssignment(int index) {
         try {
             if (index < 0 || index >= Student.MAX_SLOTS) {
