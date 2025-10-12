@@ -17,17 +17,49 @@ public class FullTimeStudent extends Student {
             if (this.getGrades()[count].getGradeID() != -1) {
                 Schedule.put(c.getCourseName(), c.getTime());
             }
+            count++;
         }
     };
 
     @Override
-    public String checkSchedule(){
-        return "";
-    };
+    public String checkSchedule() {
+        Course[] currentCourses = this.getCourses();
+        System.out.println("Current Schedule:");
+        boolean hasCourses = false;
+        for (int i = 0; i < currentCourses.length; i++) {
+            Course c = currentCourses[i];
+            if (c != null) {
+                hasCourses = true;
+                System.out.println("Slot " + (i + 1) + ": " + c.getCourseName() + " at " + c.getTime());
+            }
+        }
+        if (!hasCourses) {
+            System.out.println("No courses scheduled.");
+        }
+        return "Schedule displayed.";
+    }
 
     @Override
-    public void deleteSchedule(int index){
-    };
+    public void deleteSchedule(int index) {
+        if (index < 0 || index >= MAX_SLOTS) {
+            System.out.println("Please select a valid course slot to delete.");
+            return;
+        }
+
+        Course[] enrolledCourses = this.getCourses();
+        if (enrolledCourses[index] == null) {
+            System.out.println("No course scheduled here.");
+            return;
+        }
+
+        Course courseToRemove = enrolledCourses[index];
+        if (Schedule.containsKey(courseToRemove.getCourseName())) {
+            Schedule.remove(courseToRemove.getCourseName());
+            System.out.println("Removed " + courseToRemove.getCourseName() + " from your viewable schedule.");
+        } else {
+            System.out.println("That course wasn't in your viewable schedule.");
+        }
+    }
 
     @Override
     public void createRoadmap(String major) {
@@ -130,7 +162,33 @@ public class FullTimeStudent extends Student {
     }
     
     //Method 4
-    public void extraMethod2(){};
+    public void totalCredits() {
+        Course[] courses = this.getCourses();
+        Grades[] grades = this.getGrades();
+        
+        int totalTaken = 0;
+        int totalPassed = 0;
+
+        for (int i = 0; i < courses.length; i++) {
+            Course c = courses[i];
+            Grades g = grades[i];
+            
+            if (c == null || g == null ) {
+                continue;
+            }
+            int credits = c.getCredits();
+            int gradeValue = g.getGradeID();
+            
+            totalTaken += credits;
+
+            if (gradeValue >= 70) {
+                totalPassed += credits;
+            }
+
+        }
+        System.out.println("Total Credits Enrolled: " + totalTaken);
+        System.out.println("Total Credits Passed: " + totalPassed);
+    }
 
 
     // Helper Methods
