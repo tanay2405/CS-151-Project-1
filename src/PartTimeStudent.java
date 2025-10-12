@@ -45,8 +45,26 @@ public class PartTimeStudent extends Student {
 
     @Override
     public void printInfo(Course[] coursesList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printInfo'");
+        
+        System.out.println("Student Info: ");
+        System.out.println(("Student: " + this.getName() + ", ID: " + this.getStudID() + ", Email: " + this.getEmail()));
+
+        Course[] studentEnrolled = this.getCourses();
+        boolean hasCoursesAvail = false;
+
+        for (Course c : studentEnrolled) {
+            if (c != null) {
+                hasCoursesAvail = true;
+                System.out.println("Courses enrolled in: " + c.getCourseName() + " (" + c.getCourseID() + "), Credits: " + c.getCredits() + ", Time: " + c.getTime());
+            }
+        }
+
+        if (!hasCoursesAvail) {
+            System.out.println("Student has no enrolled courses.");
+        }
+
+
+
     }
 
     @Override
