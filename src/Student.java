@@ -18,7 +18,7 @@ public abstract class Student implements Person {
     private String major;
 
     public final Grade[] grades = {new Grade(), new Grade(), new Grade(), new Grade(), new Grade(), new Grade()};
-    public final Professor[] professors = new Professor[MAX_SLOTS];
+    public final Professor[] professors = { new Professor(), new Professor(), new Professor(), new Professor(), new Professor(), new Professor()};
     public final Course[] courses = {new Course(), new Course(), new Course(), new Course(), new Course(), new Course()};
 
     public Map<String, Integer> Schedule = new HashMap<>();
