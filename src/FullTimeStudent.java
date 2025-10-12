@@ -164,14 +164,14 @@ public class FullTimeStudent extends Student {
     //Method 4
     public void totalCredits() {
         Course[] courses = this.getCourses();
-        Grades[] grades = this.getGrades();
+        Grade[] grades = this.getGrades();
         
         int totalTaken = 0;
         int totalPassed = 0;
 
         for (int i = 0; i < courses.length; i++) {
             Course c = courses[i];
-            Grades g = grades[i];
+            Grade g = grades[i];
             
             if (c == null || g == null ) {
                 continue;
