@@ -105,11 +105,13 @@ public abstract class Student implements Person {
             }
         }
         if (grades[index] == null) {
-            grades[index] = new Grades(points);
+            grades[index] = new Grades();
+            grades[index].setGradeID(points);  
+
         }
         else {
             Integer currentGrade = grades[index].getGradeID();
-            if (currentGrade == null) {
+            if (currentGrade == null || currentGrade == -1) {
                 currentGrade = 0;
             }
             int newGrade = currentGrade + points;
