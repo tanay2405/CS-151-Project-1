@@ -4,7 +4,7 @@ public interface Person {
     /**
      * Print identifying info about the person (e.g., name, role).
      */
-    public void printInfo();
+    public void printInfo(Course[] coursesList);
 
     /**
      * Perform the act of submitting an assignment.
