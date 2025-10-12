@@ -205,10 +205,54 @@ public class Professor implements Person  {
         }
     }
 
-    @Override
     public void submitAssignment(int index, Student[] studentsList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'submitAssignment'");
+
+        if (index < 0 || index >= Student.MAX_SLOTS) {
+            throw new IndexOutOfBoundsException("index must be 0..5");
+        }
+        if (studentsList == null || studentsList.length == 0) {
+            System.out.println("No student for this professor.");      
+            return;  
+        }
+
+        Student studentInClass = null;
+        for (Student s : studentsList) {
+            if (s != null) {
+                Course[] c = s.getCourses();
+                if (index < c.length && c[index] != null) {
+                    Course study = c[index];
+                    int courseIDs = study.getCourseID();
+                    if (courseIDs == this.courseID1 || courseIDs == this.courseID2 || courseIDs == this.courseID3) {
+                        studentInClass = s;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        if (studentInClass == null) {
+            System.out.println("Student not found in this course index.");
+            return;
+        }
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the points to deduct from student: ");
+        while (!sc.hasNextInt()) {
+            System.out.println("Please enter an integer number.");
+            sc.next();
+        }
+        int pointsDeducted = Math.abs(sc.nextInt());
+        Grades currentGrade = studentInClass.getGrades()[index];
+        if (currentGrade == null) {
+            System.out.println("There is no grade for this student. Grade cannot be deducted.");
+            return;
+        }
+
+        Integer currentGradeValue = currentGrade.getGradeID();
+        if (currentGradeValue == null || currentGradeValue == -1) {
+            currentGradeValue = 0;
+        }
+        int newGrade = currentGradeValue - pointsDeducted;
+        currentGrade.setGradeID(newGrade);
     }
 
 }
