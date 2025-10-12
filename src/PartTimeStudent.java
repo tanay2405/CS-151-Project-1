@@ -38,12 +38,6 @@ public class PartTimeStudent extends Student {
         }
     }
 
-    public void showCourseAvailability(){
-        for (Course c : coursesList) {
-            System.out.println(c.getCourseName());
-        }
-    }
-
     public void showCourseRoadmap(){
         for (Course c : roadmapCourseList) {
             System.out.println(c.getCourseName());
@@ -53,7 +47,10 @@ public class PartTimeStudent extends Student {
     //Method 1
     public void dropCourses() {
         final int MAX = 6;
-        showCourseAvailability();
+        System.out.println("Course options: ");
+        for (Course c : courses) {
+            System.out.println(c.getCourseID());
+        }
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses to drop. Press ENTER on course name to finish early.");
         int count = 0;
@@ -76,6 +73,8 @@ public class PartTimeStudent extends Student {
     
     //Method 2
     public void applyForCourses() {
+        System.out.println("Course options: ");
+        showCourseAvailability();
         final int MAX = 6;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses. Press ENTER on course name to finish early.");
