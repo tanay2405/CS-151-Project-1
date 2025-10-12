@@ -78,7 +78,7 @@ public abstract class Student implements Person {
     }
 
     // Method 2
-    public abstract void addSchedule(Course course, Professor professor);
+    public abstract void addSchedule();
     
     // Method 3
     public abstract String checkSchedule();
