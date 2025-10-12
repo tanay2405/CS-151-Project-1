@@ -7,8 +7,8 @@ public class Grades {
 
     private String gradeLetterPassFail;
 
-    public Grades(int gradeID) {
-        this.gradeID = gradeID;
+    public Grades() {
+        this.gradeID = -1;
         this.gradeLetterPassFail = "NA";
     }
 
@@ -115,6 +115,7 @@ public class Grades {
 
     }
 }
+
 
 
 
