@@ -1,5 +1,6 @@
 package src;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class FullTimeStudent extends Student {
