@@ -10,7 +10,7 @@ public class PartTimeStudent extends Student {
     // Attributes
     public static final int COURSE_LIMIT = 4;  // part-time limit (informational)
     public Map<String, Integer> Schedule = new HashMap<>();
-    List<Course> roadmapCourseList = new ArrayList<>(); 
+    public List<Course> roadmapCourseList = new ArrayList<>(); 
     private static Course c1  = new Course(1001, "CMPE 120", 3, 530, true);
     private static Course c2  = new Course(1002, "CMPE 121", 4, 800, true);
     private static Course c3  = new Course(1003, "CMPE 122", 3, 930, true);
