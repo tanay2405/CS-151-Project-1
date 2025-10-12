@@ -63,8 +63,8 @@ public class FullTimeStudent extends Student {
             if (course.isEmpty()) break;      
             if (checkIfCourseValid(course)) {
                 System.out.println("Removed: " + course);
-                this.getCourses()[count] = new Course();
-                this.getGrades()[count] = new Grade();
+                courses[count] = new Course();
+                grades[count] = new Grade();
             } else {
                 System.out.println("That course is not in your schedule. Try a different one.");
                 continue;
@@ -88,13 +88,13 @@ public class FullTimeStudent extends Student {
                 System.out.println("That course is already in your schedule. Try a different one.");
                 continue;
             }
-            this.getCourses()[count] = getCourseObjectFromCourseID(course);
+            courses[count] = getCourseObjectFromCourseID(course);
             System.out.println("Added: " + course);
             count++;
         }
         System.out.println("\nYou added " + count + " course(s).");
     }
-
+    
     // Method 3
     public void changeMajor() {
         if (this.getGPA() >= 3.2) {
