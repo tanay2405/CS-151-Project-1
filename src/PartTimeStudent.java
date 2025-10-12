@@ -44,7 +44,7 @@ public class PartTimeStudent extends Student {
     }
 
     @Override
-    public void printInfo() {
+    public void printInfo(Course[] coursesList) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'printInfo'");
     }
