@@ -18,6 +18,14 @@ public class Course {
         this.passFail = passFail;
     }
 
+    public Course() {
+        this.courseID = 0;
+        this.courseName = "";
+        this.credits = 0;
+        this.time = 0;
+        this.passFail = false;
+    }
+
      public void setCourseID(int courseId) {
         this.courseID = courseId;
     }
