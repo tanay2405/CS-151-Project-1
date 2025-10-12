@@ -1,4 +1,3 @@
-
 package src;
 
 import java.util.ArrayList;
@@ -8,30 +7,30 @@ import java.util.Scanner;
 
 public abstract class Student implements Person {
 
-    static Student Aarav   = new FullTimeStudent(10044556, "Aarav", "aarav.baphna@gmail.com");
-    static Student Tanay   = new FullTimeStudent(10044558, "Tanay", "tanay.patel@example.com");
-    static Student Srihan  = new FullTimeStudent(10044559, "Srihan", "srihan.rao@example.com");
-    static Student Maya    = new FullTimeStudent(10044560, "Maya", "maya.kapoor@example.com");
-    static Student Priya   = new FullTimeStudent(10044561, "Priya", "priya.shah@example.com");
-    static Student Jordan  = new FullTimeStudent(10044562, "Jordan", "jordan.lee@example.com");
-    static Student Alex    = new FullTimeStudent(10044563, "Alex", "alex.kim@example.com");
-    static Student Sam     = new FullTimeStudent(10044564, "Sam", "sam.nguyen@example.com");
-    static Student Nikhil  = new FullTimeStudent(10044565, "Nikhil", "nikhil.desai@example.com");
-    static Student Anya    = new FullTimeStudent(10044566, "Anya", "anya.singh@example.com");
-    static Student Zoe     = new FullTimeStudent(10044567, "Zoe", "zoe.martinez@example.com");
-    static Student Liam    = new FullTimeStudent(10044568, "Liam", "liam.johnson@example.com");
-    static Student Noah    = new PartTimeStudent(10044569, "Noah", "noah.roberts@example.com");
-    static Student Emma    = new PartTimeStudent(10044570, "Emma", "emma.brown@example.com");
-    static Student Olivia  = new PartTimeStudent(10044571, "Olivia", "olivia.davis@example.com");
-    static Student Ethan   = new PartTimeStudent(10044572, "Ethan", "ethan.wilson@example.com");
-    static Student Mia     = new PartTimeStudent(10044573, "Mia", "mia.torres@example.com");
-    static Student Sophia  = new PartTimeStudent(10044574, "Sophia", "sophia.garcia@example.com");
-    static Student Ava     = new PartTimeStudent(10044575, "Ava", "ava.clark@example.com");
-    static Student Lucas   = new PartTimeStudent(10044576, "Lucas", "lucas.ramirez@example.com");
-    static Student Isabel  = new PartTimeStudent(10044577, "Isabel", "isabel.lopez@example.com");
-    static Student Mateo   = new PartTimeStudent(10044578, "Mateo", "mateo.hernandez@example.com");
-    static Student Chloe   = new PartTimeStudent(10044579, "Chloe", "chloe.king@example.com");
-    static Student Arjun   = new PartTimeStudent(10044580, "Arjun", "arjun.mehta@example.com");
+    static Student Aarav   = new FullTimeStudent(10044556, "Aarav", "aarav.baphna@gmail.com", "CMPE");
+    static Student Tanay   = new FullTimeStudent(10044558, "Tanay", "tanay.patel@example.com", "CMPE");
+    static Student Srihan  = new FullTimeStudent(10044559, "Srihan", "srihan.rao@example.com", "CS");
+    static Student Maya    = new FullTimeStudent(10044560, "Maya", "maya.kapoor@example.com", "ENGR");
+    static Student Priya   = new FullTimeStudent(10044561, "Priya", "priya.shah@example.com", "CS");
+    static Student Jordan  = new FullTimeStudent(10044562, "Jordan", "jordan.lee@example.com", "ENGR");
+    static Student Alex    = new FullTimeStudent(10044563, "Alex", "alex.kim@example.com", "CS");
+    static Student Sam     = new FullTimeStudent(10044564, "Sam", "sam.nguyen@example.com", "ENGR");
+    static Student Nikhil  = new FullTimeStudent(10044565, "Nikhil", "nikhil.desai@example.com", "CS");
+    static Student Anya    = new FullTimeStudent(10044566, "Anya", "anya.singh@example.com", "CMPE");
+    static Student Zoe     = new FullTimeStudent(10044567, "Zoe", "zoe.martinez@example.com", "CMPE");
+    static Student Liam    = new FullTimeStudent(10044568, "Liam", "liam.johnson@example.com", "CS");
+    static Student Noah    = new PartTimeStudent(10044569, "Noah", "noah.roberts@example.com", "CS");
+    static Student Emma    = new PartTimeStudent(10044570, "Emma", "emma.brown@example.com", "ENGR");
+    static Student Olivia  = new PartTimeStudent(10044571, "Olivia", "olivia.davis@example.com", "ENGR");
+    static Student Ethan   = new PartTimeStudent(10044572, "Ethan", "ethan.wilson@example.com", "CS");
+    static Student Mia     = new PartTimeStudent(10044573, "Mia", "mia.torres@example.com", "ENGR");
+    static Student Sophia  = new PartTimeStudent(10044574, "Sophia", "sophia.garcia@example.com", "CS");
+    static Student Ava     = new PartTimeStudent(10044575, "Ava", "ava.clark@example.com", "CMPE");
+    static Student Lucas   = new PartTimeStudent(10044576, "Lucas", "lucas.ramirez@example.com", "CMPE");
+    static Student Isabel  = new PartTimeStudent(10044577, "Isabel", "isabel.lopez@example.com", "CS");
+    static Student Mateo   = new PartTimeStudent(10044578, "Mateo", "mateo.hernandez@example.com", "CS");
+    static Student Chloe   = new PartTimeStudent(10044579, "Chloe", "chloe.king@example.com", "ENGR");
+    static Student Arjun   = new PartTimeStudent(10044580, "Arjun", "arjun.mehta@example.com", "CS");
     private static final List<Student> studentsList = new ArrayList<>(Arrays.asList( Aarav, Tanay, Srihan, Maya, Priya, Jordan, Alex, Sam, Nikhil, Anya, Zoe, Liam, Noah, Emma, Olivia, Ethan, Mia, Sophia, Ava, Lucas, Isabel, Mateo, Chloe, Arjun));
     public static final int MAX_SLOTS = 6;
 
@@ -39,17 +38,19 @@ public abstract class Student implements Person {
     private String name;
     private String email;
     private Double GPA;
+    private String major;
 
     private final Grades[] grades = new Grades[MAX_SLOTS];
     private final Professor[] professors = new Professor[MAX_SLOTS];
     private final Course[] courses = new Course[MAX_SLOTS];
 
-    protected Student(Integer studID, String name, String email) {
+    protected Student(Integer studID, String name, String email, String major) {
         if (studID == null) throw new IllegalArgumentException("studID cannot be null");
         this.studID = studID;
         this.name = name;
         this.email = email;
         this.GPA = 0.0;
+        this.major = major;
     }
     public static void main(String[] args) {
         System.out.println("Hello, world!");
@@ -79,15 +80,18 @@ public abstract class Student implements Person {
 
     // Method 2
     public abstract void addSchedule();
-    
+
     // Method 3
-    public abstract String checkSchedule();
+    public abstract void deleteSchedule(int index);
 
     // Method 4
-    public abstract void deleteSchedule(int index);
+    public abstract void createRoadmap(String major);
+
+    
+    public abstract String checkSchedule();
     
     
-    public void submitAssignment(int index, Student[] studentsList) {
+    public void submitAssignment(int index) {
         validateIndex(index);
         if (courses[index] == null) {
             throw new IllegalStateException("No course scheduled at index: " + index);
@@ -106,14 +110,9 @@ public abstract class Student implements Person {
         }
         if (grades[index] == null) {
             grades[index] = new Grades();
-            grades[index].setGradeID(points);  
-
         }
         else {
             Integer currentGrade = grades[index].getGradeID();
-            if (currentGrade == null || currentGrade == -1) {
-                currentGrade = 0;
-            }
             int newGrade = currentGrade + points;
             grades[index].setGradeID(newGrade);
         }
@@ -147,6 +146,8 @@ public abstract class Student implements Person {
     public String getName() { return name; }
     public String getEmail() { return email; }
     public Double getGPA() {return GPA; }
+    public String getMajor() {return major; }
+    public void setMajor(String major) {this.major = major;}
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
     public void setGPA(Double GPA) {this.GPA = GPA; } 
