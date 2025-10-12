@@ -22,8 +22,8 @@ public class Professor implements Person  {
 
     public Professor() {
         this.professorID = 0;
-        this.professorName = "Default";
-        this.email = "default@university.edu";
+        this.professorName = "NA";
+        this.email = "NA";
         this.courseID1 = 0;
         this.courseID2 = 0;
         this.courseID3 = 0;
