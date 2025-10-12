@@ -93,6 +93,11 @@ public class FullTimeStudent extends Student {
         }
     }
 
+    public void showCourseRoadmap(){
+        for (Course c : roadmapCourseList) {
+            System.out.println(c.getCourseName());
+        }
+    }
     
     // NEW Methods (no implementations)
     public void showCourseAvailability(){
