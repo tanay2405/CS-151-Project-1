@@ -9,5 +9,5 @@ public interface Person {
     /**
      * Perform the act of submitting an assignment.
      */
-    public void submitAssignment(int index);
+    public void submitAssignment(int index, Student[] studentList);
 }
