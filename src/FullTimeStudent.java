@@ -101,8 +101,8 @@ public class FullTimeStudent extends Student {
             if (course.isEmpty()) break;      
             if (checkIfCourseValid(course)) {
                 System.out.println("Removed: " + course);
-                this.getCourses()[count] = null;
-                this.getGrades()[count] = null;
+                this.getCourses()[count] = new Course();
+                this.getGrades()[count] = new Grades();
             } else {
                 System.out.println("That course is not in your schedule. Try a different one.");
                 continue;
