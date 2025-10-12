@@ -86,9 +86,35 @@ public abstract class Student implements Person {
     public abstract void deleteSchedule(int index);
     
     
-    public void submitAssignment(int index) { // NEEDS TO BE IMPLEMENTED
-        grades[index].setGradeID(grades[index].getGradeID() + 10);
-    }
+    public void submitAssignment(int index) {
+        validateIndex(index);
+        if (courses[index] == null) {
+            throw new IllegalStateException("No course scheduled at index: " + index);
+        }
+        Scanner sc = new Scanner(System.in);
+        Integer points = null;
+        while (points == null) {
+            System.out.print("Enter amount of points earned for the assignment: ");
+            if (sc.hasNextInt()) {
+                points = sc.nextInt();
+            }
+            else {
+                System.out.println("Please enter an integer number.");
+                sc.next();
+            }
+        }
+        if (grades[index] == null) {
+            grades[index] = new Grades(points);
+        }
+        else {
+            Integer currentGrade = grades[index].getGradeID();
+            if (currentGrade == null) {
+                currentGrade = 0;
+            }
+            int newGrade = currentGrade + points;
+            grades[index].setGradeID(newGrade);
+        }
+    } 
 
     
     private Double letterToPoints(String letter) {
