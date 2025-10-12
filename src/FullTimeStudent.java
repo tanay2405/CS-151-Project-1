@@ -92,6 +92,9 @@ public class FullTimeStudent extends Student {
             if (checkIfCourseValid(course)) {
                 System.out.println("That course is already in your schedule. Try a different one.");
                 continue;
+            } else if(!checkIfCourseExists(course)){
+                System.out.println("CourseID not valid (Course doesn't exist)");
+                continue;
             }
             courses[count] = getCourseObjectFromCourseID(course);
             System.out.println("Added: " + course);
@@ -131,6 +134,16 @@ public class FullTimeStudent extends Student {
 
 
     // Helper Methods
+
+    public boolean checkIfCourseExists(String course) {
+        for(Course g : coursesList) {
+            if(g.getCourseID() == Integer.parseInt(course)) {
+                return true;
+            }    
+        }
+        return false;
+    }
+    
     public boolean checkIfCourseValid(String course) {
         for (Course g : this.getCourses()) {
             if (Integer.parseInt(course) == g.getCourseID()) {
