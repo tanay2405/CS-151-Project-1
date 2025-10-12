@@ -65,21 +65,33 @@ public class Professor implements Person  {
     // Helper Method
     private Student verifyProfInputs() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your Professor ID: ");
-        int profInput = scanner.nextInt();
-        if (profInput != this.professorID) {
-            System.out.println("Error: Wrong Professor ID. Please Try Again.");
+        try {
+            System.out.println("Enter your Professor ID: ");
+            int profInput = scanner.nextInt();
+            if (profInput != this.professorID) {
+                System.out.println("Error: Wrong Professor ID. Please Try Again.");
+                return null;
+            }
+            System.out.print("Enter Student ID: ");
+            int studentIDInput = scanner.nextInt();
+            for (Student s : studentsList) {
+                if (s.getStudID() == studentIDInput) {
+                return s;
+                }
+            }
+            System.out.println("Student not found.");
+            return null;
+        
+        } catch (InputMismatchException e) {
+            System.out.println("Input is invalid. Please enter an integer number.");
+            return null;
+        } catch (NoSuchElementException e) {
+            System.out.println("No input provided to the scanner.");
+            return null;
+        } catch (Exception e) {
+            System.out.println("Error has occurred in the program: " + e.getMessage());
             return null;
         }
-        System.out.print("Enter Student ID: ");
-        int studentIDInput = scanner.nextInt();
-        for (Student s : studentsList) {
-            if (s.getStudID() == studentIDInput) {
-                return s;
-            }
-        }
-        System.out.println("Student not found.");
-        return null;
     }
 
     // Method 1
