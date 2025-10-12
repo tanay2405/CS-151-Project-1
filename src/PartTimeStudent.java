@@ -2,11 +2,11 @@ package src;
 
 import java.util.Scanner;
 
-public class FullTimeStudent extends Student {
+public class PartTimeStudent extends Student {
 
-    public static final int COURSE_LIMIT = 6;
-
-    protected FullTimeStudent(Integer studID, String name, String email, String major) {
+    public static final int COURSE_LIMIT = 4;
+    
+    protected PartTimeStudent(Integer studID, String name, String email, String major) {
         super(studID, name, email, major);
     }
 
@@ -43,8 +43,7 @@ public class FullTimeStudent extends Student {
             System.out.println(c.getCourseName());
         }
     }
-
-
+    
     //Method 1
     public void dropCourses() {
         final int MAX = 6;
@@ -74,6 +73,7 @@ public class FullTimeStudent extends Student {
     
     //Method 2
     public void applyForCourses() {
+        System.out.println("Course options: ");
         showCourseAvailability();
         final int MAX = 6;
         Scanner sc = new Scanner(System.in);
@@ -97,7 +97,7 @@ public class FullTimeStudent extends Student {
         System.out.println("\nYou added " + count + " course(s).");
     }
     
-    // Method 3
+    //Method 3
     public void changeMajor() {
         if (this.getGPA() >= 3.2) {
             final java.util.Set<String> allowed = java.util.Set.of("CS", "CMPE", "ENGR");
@@ -122,20 +122,9 @@ public class FullTimeStudent extends Student {
             System.out.println("Cannot switch major (GPA restriction not met)");
         }
     }
-    
-    //Method 4
+
+    // Method 4
     public void extraMethod2(){};
-
-
-    // Helper Methods
-    public boolean checkIfCourseValid(String course) {
-        for (Course g : this.getCourses()) {
-            if (Integer.parseInt(course) == g.getCourseID()) {
-                return true;
-            }
-        }
-        return false;      
-    }
 
     public boolean checkIfCourseExists(String course) {
         for(Course g : coursesList) {
@@ -146,6 +135,15 @@ public class FullTimeStudent extends Student {
         return false;
     }
     
+    // Helper Methods
+    public boolean checkIfCourseValid(String course) {
+        for (Course g : this.getCourses()) {
+            if (Integer.parseInt(course) == g.getCourseID()) {
+                return true;
+            }
+        }
+        return false;      
+    }
 
     public Course getCourseObjectFromCourseID(String course) {
         for (Course c : coursesList) {
@@ -155,4 +153,6 @@ public class FullTimeStudent extends Student {
         }
         return null;
     }
+
+
 }
