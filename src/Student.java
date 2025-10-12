@@ -77,13 +77,13 @@ public abstract class Student implements Person {
     }
 
     // Method 2
-    public abstract boolean addSchedule(Course course, Professor professor);
+    public abstract void addSchedule(Course course, Professor professor);
     
     // Method 3
     public abstract String checkSchedule();
 
     // Method 4
-    public abstract boolean deleteSchedule(int index);
+    public abstract void deleteSchedule(int index);
     
     
     public void submitAssignment(int index) { // NEEDS TO BE IMPLEMENTED
