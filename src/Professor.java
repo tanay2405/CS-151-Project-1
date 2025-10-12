@@ -19,6 +19,16 @@ public class Professor implements Person  {
         this.courseID2 = courseID2;
         this.courseID3 = courseID3;
     }
+
+    public Professor() {
+        this.professorID = 0;
+        this.professorName = "Default";
+        this.email = "default@university.edu";
+        this.courseID1 = 0;
+        this.courseID2 = 0;
+        this.courseID3 = 0;
+    }
+    
     public void setProfessorID(int professorID) {
         this.professorID = professorID;
     }
