@@ -84,29 +84,36 @@ public abstract class Student implements Person {
     
     @Override
     public void submitAssignment(int index) {
-        validateIndex(index);
-        if (courses[index] == null) {
-            throw new IllegalStateException("No course scheduled at index: " + index);
-        }
-        Scanner sc = new Scanner(System.in);
-        Integer points = null;
-        while (points == null) {
-            System.out.print("Enter amount of points earned for the assignment: ");
-            if (sc.hasNextInt()) {
-                points = sc.nextInt();
+        try { 
+            validateIndex(index);
+            if (courses[index] == null) {
+                throw new IllegalStateException("No course scheduled at index: " + index);
+            }
+            Scanner sc = new Scanner(System.in);
+            int points;
+            while (true) {
+                System.out.print("Enter amount of points earned for the assignment: ");
+                try {
+                    points = sc.nextInt();
+                    break;
+                } catch (java.util.InputMismatchException e) {
+                    System.out.println("Input is invalid. Please enter an integer number.");
+                    sc.next(); 
+                }
+            }
+
+            if (grades[index] == null) {
+                grades[index] = new Grade();
             }
             else {
-                System.out.println("Please enter an integer number.");
-                sc.next();
+                Integer currentGrade = grades[index].getGradeID();
+                int newGrade = currentGrade + points;
+                grades[index].setGradeID(newGrade);
             }
-        }
-        if (grades[index] == null) {
-            grades[index] = new Grade();
-        }
-        else {
-            Integer currentGrade = grades[index].getGradeID();
-            int newGrade = currentGrade + points;
-            grades[index].setGradeID(newGrade);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index is out of bounds. Please enter an index between 0 and 5.");
+        } catch (Exception e) {
+            System.out.println("Error has occurred in the program: " + e.getMessage());
         }
     }
     
