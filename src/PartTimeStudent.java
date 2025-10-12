@@ -50,7 +50,13 @@ public class PartTimeStudent extends Student {
     }
 
     @Override
-    public void addSchedule(Course course, Professor professor){
+    public void addSchedule(){
+        int count = 0;
+        for (Course c : coursesList) {
+            if (this.getGrades()[count].getGradeID() != -1) {
+                Schedule.put(c.getCourseName(), c.getTime());
+            }
+        }
     };
 
     @Override
