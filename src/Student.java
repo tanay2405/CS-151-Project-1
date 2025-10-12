@@ -120,21 +120,44 @@ public abstract class Student implements Person {
     @Override
     public void printInfo() {
         System.out.println("Student Info: ");
-        System.out.println(("Student: " + this.getName() + ", ID: " + this.getStudID() + ", Email: " + this.getEmail()));
+        System.out.println(("Student: " + this.getName() + ", ID: " + this.getStudID() + ", Email: " + this.getEmail() + ", Major: " + this.getMajor()));
 
         Course[] studentEnrolled = this.getCourses();
+        Professor[] studentProfessors = this.getProfessors();
+        Grade[] studentGrades = this.getGrades();   
         boolean hasCoursesAvail = false;
+        int i = 0;
 
         for (Course c : studentEnrolled) {
             if (c != null) {
                 hasCoursesAvail = true;
-                System.out.println("Courses enrolled in: " + c.getCourseName() + " (" + c.getCourseID() + "), Credits: " + c.getCredits() + ", Time: " + c.getTime());
-            }
+
+                String proftoStudent = "N/A";
+                if (studentProfessors != null && i < studentProfessors.length && studentProfessors[i] != null) {
+                    proftoStudent =  studentProfessors[i].getProfessorName() + " (ID: " + studentProfessors[i].getProfessorID() + ")";
+                }
+
+                String gradetoStudent = "N/A";
+                if (studentGrades != null && i < studentGrades.length && studentGrades[i] != null) {
+                    Integer gradeValue = studentGrades[i].getGradeID();
+                    if (gradeValue != null)
+                    {
+                        gradetoStudent = gradeValue.toString();
+                    }
+                }
+
+                System.out.println("Courses enrolled in: " + c.getCourseName() + " (" + c.getCourseID() + "), " 
+                + "Credits: " + c.getCredits() + ", Time: " + c.getTime() + ", "
+                + "Professor: " + proftoStudent + 
+                  ", Grade: " + gradetoStudent);
+
+            };
         }
         if (!hasCoursesAvail) {
             System.out.println("Student has no enrolled courses.");
         }
     }
+
 
     // Helper Methods
     private void validateIndex(int i) {
