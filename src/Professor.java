@@ -63,7 +63,7 @@ public class Professor implements Person  {
     }
 
     // Helper Method
-    private Student verifyProfInputs(List<Student> studentsList) {
+    private Student verifyProfInputs() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your Professor ID: ");
         int profInput = scanner.nextInt();
@@ -83,8 +83,8 @@ public class Professor implements Person  {
     }
 
     // Method 1
-    public void approveStudent(List<Student> studentsList) {
-        Student studentEX = verifyProfInputs(studentsList);
+    public void approveStudent() {
+        Student studentEX = verifyProfInputs();
         Scanner scanner = new Scanner(System.in);
         int count = 0;
         for(Course c :  studentEX.getCourses()){
@@ -111,8 +111,8 @@ public class Professor implements Person  {
     }
 
     // Method 2
-    public void dropStudent(List<Student> studentsList) {
-        Student studentEX = verifyProfInputs(studentsList);
+    public void dropStudent() {
+        Student studentEX = verifyProfInputs();
         Scanner scanner = new Scanner(System.in);
         int count = 0;
         
@@ -136,7 +136,7 @@ public class Professor implements Person  {
     }
     
     // Method 3
-    public void addOfficeHours(Course[] coursesList) {
+    public void addOfficeHours() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your Professor ID: ");
         int profInput = scanner.nextInt();
@@ -165,7 +165,7 @@ public class Professor implements Person  {
     }
     
     // Method 4
-    public void removeOfficeHours(Course[] coursesList) {
+    public void removeOfficeHours() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your Professor ID: ");
         int profInput = scanner.nextInt();
