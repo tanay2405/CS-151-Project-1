@@ -20,7 +20,7 @@ public class Course {
 
     public Course() {
         this.courseID = 0;
-        this.courseName = "";
+        this.courseName = "NA";
         this.credits = 0;
         this.time = 0;
         this.passFail = false;
