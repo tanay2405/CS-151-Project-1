@@ -116,6 +116,7 @@ public class Professor implements Person  {
                 if (input.equalsIgnoreCase("Y")) {
                     studentEX.getGrades()[count] = new Grade();
                     studentEX.getGrades()[count].setGradeID(100);
+                    studentEX.getProfessors()[count] = this;
                     System.out.println("Approved Student");
                 } else {
                     System.out.println("Didn't Approve Student");
