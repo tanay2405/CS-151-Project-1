@@ -143,6 +143,77 @@ public class Professor  {
         }
 
 
+   }
+
+   public void addOfficeHours(Course[] coursesList) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your Professor ID: ");
+        int profInput = scanner.nextInt();
+        if (profInput != this.professorID) {
+           System.out.println("Error: Wrong Professor ID. Please Try Again.");
+           return;
+        }
+        System.out.println("Enter Course ID to set your desired Office Hours for:");
+        int courseIDInput = scanner.nextInt();
+        Course courseEX = null;
+        for (Course c : coursesList) {
+            if (c.getCourseID() == courseIDInput && checkIfCourseIsTaughtByProfessor(c)) {
+                courseEX = c;
+                break;
+            }
+        }
+        System.out.println("Set your Office Hours: ");
+        int officeHoursSlot = scanner.nextInt();
+        if (officeHoursSlot == courseEX.getTime()) {
+            System.out.println("Error: Conflicting with course time!");
+            return;
+        }
+        officeHours.put(courseEX.getCourseName(), officeHoursSlot);
+        System.out.println(courseEX.getCourseName() + "| Office Hours: " + officeHoursSlot);
+
+    }
+    
+    public void removeOfficeHours(Course[] coursesList) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your Professor ID: ");
+        int profInput = scanner.nextInt();
+        if (profInput != this.professorID) {
+            System.out.println("Error: Wrong Professor ID. Please Try Again.");
+            return;
+        }
+        System.out.println("Enter Course ID to remove Office Hours for:");
+        int courseIDInput = scanner.nextInt();
+        Course courseEX = null;
+        for (Course c : coursesList) {
+            if (c.getCourseID() == courseIDInput && checkIfCourseIsTaughtByProfessor(c)) {
+                courseEX = c;
+                break;
+            }
+        }
+        if (!officeHours.containsKey(courseEX.getCourseName())) {
+            System.out.println("No office hours set for this course.");
+            return;
+        }
+        officeHours.remove(courseEX.getCourseName());
+        System.out.println("Removed office hours for: " + courseEX.getCourseName());
+        System.out.println(courseEX.getCourseName() + "| Office Hours: N/A");
+    }
+
+    public void printInfo(Course[] coursesList) {
+        System.out.println("Professor " + professorName + "'s Schedule:" );
+        for (Course course: coursesList) {
+            int id = course.getCourseID();
+            if (id == courseID1 || id == courseID2 || id == courseID3 ) {
+                String printOfficeHours;
+                if (officeHours.containsKey(course.getCourseName())) {
+                    printOfficeHours = String.valueOf(officeHours.get(course.getCourseName()));
+                } else {
+                    printOfficeHours = "N/A";
+                }
+                System.out.println("Course: " + course.getCourseName() + " | Course ID: " + course.getCourseID() + 
+                " | Course Time: " + course.getTime() + " | Office Hours: " + printOfficeHours);
+            }
+        }
     }
 }
 
