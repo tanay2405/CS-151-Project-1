@@ -2,26 +2,23 @@ package src;
 
 import java.util.*;
 
-
-public class Professor  {
-
-
+public class Professor implements Person  {
    private int professorID;
-  private String professorName;
-  private String email;
-  private int courseID1;
-  private int courseID2;
-  private int courseID3;
-  private Map<String, Integer> schedule = new HashMap<>();
+   private String professorName; 
+   private String email;
+   private int courseID1;
+   private int courseID2;
+   private int courseID3;
+   private Map<String, Integer> officeHours = new HashMap<>();
 
 
   public Professor(int professorID, String professorName,  String email, int courseID1, int courseID2, int courseID3) {
-      this.professorID = professorID;
-      this.professorName = professorName;
-      this.email = email;
-      this.courseID1 = courseID1;
-      this.courseID2 = courseID2;
-      this.courseID3 = courseID3;
+     this.professorID = professorID;
+     this.professorName = professorName;
+     this.email = email;
+     this.courseID1 = courseID1;
+     this.courseID2 = courseID2;
+     this.courseID3 = courseID3;
 
  }
 
@@ -61,6 +58,15 @@ public class Professor  {
   public void setCourseID3(int courseID3) {
       this.courseID3 = courseID3;
   }
+
+public Map<String, Integer> getOfficeHours() {
+    return officeHours;
+}
+
+public void setOfficeHours(Map<String, Integer> officeHours) {
+    this.officeHours = officeHours;
+}
+
 
 
 
@@ -143,9 +149,9 @@ public class Professor  {
         }
 
 
-   }
-
-   public void addOfficeHours(Course[] coursesList) {
+    }
+    
+    public void addOfficeHours(Course[] coursesList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your Professor ID: ");
         int profInput = scanner.nextInt();
@@ -215,6 +221,16 @@ public class Professor  {
             }
         }
     }
+
+    @Override
+    public void submitAssignment(int index) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'submitAssignment'");
+    }
+
 }
+
+    
+
 
     
