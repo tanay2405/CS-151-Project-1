@@ -116,7 +116,9 @@ public abstract class Student implements Person {
         }
     } 
 
-    
+    private void validateIndex(int i) {
+        if (i < 0 || i >= MAX_SLOTS) throw new IndexOutOfBoundsException("index must be 0..5");
+    }
     private Double letterToPoints(String letter) {
         if (letter == null) return null;
         switch (letter) {
