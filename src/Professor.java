@@ -231,9 +231,79 @@ public class Professor implements Person  {
         }
     }
 
+        @Override
     public void submitAssignment(int index) {
+        try {
+            if (index < 0 || index >= Student.MAX_SLOTS) {
+                throw new IndexOutOfBoundsException("Index is out of bounds. Please enter an index between 0 and 5.");
+            }
+            
+            Student studentEX = verifyProfInputs();
+            if (studentEX == null) {
+                return; 
+            }
 
-    }
+            Grade[] studentGrades = studentEX.getGrades();
+            Grade gradeAtIndex = studentGrades[index];
+            int currentGrade = gradeAtIndex.getGradeID();
+            System.out.println("Current grade: " + currentGrade);
+            Scanner sc = new Scanner(System.in);
+
+            char chosen;
+            while (true) {
+                System.out.print("Type 'A' to add points or 'D' to deduct points from the student: ");
+                String inputChosen = sc.next().trim().toUpperCase();
+                if ("A".equals(inputChosen) || "D".equals(inputChosen)) {
+                    chosen = inputChosen.charAt(0);
+                    break;
+                } else {
+                    System.out.println("Input is valid. Please only enter 'A' or 'D'.");
+                }
+            }
+
+            int points;
+            while (true) {
+                System.out.print("Enter amount of points earned for the assignment: ");
+                try {
+                    points = sc.nextInt();
+                    if (points < -1) {
+                        points = -1;
+                        continue;
+                        
+                    }
+                    break;
+                } catch (java.util.InputMismatchException e) {
+                    System.out.println("Input is invalid. Please enter an integer number.");
+                    sc.next(); 
+                }
+
+            }
+
+            if (gradeAtIndex == null) {
+                System.out.println("No grade record found for the course at index: " + index);
+                return;
+            }
+
+            if (currentGrade < -1) {
+                currentGrade = -1;
+            }
+            System.out.println("Student's current grade: " + currentGrade);
+            int studentNewGrade = currentGrade;
+            if (chosen == 'A') {
+                studentNewGrade += points;
+            } else {
+                studentNewGrade -= points;
+            }
+            if (studentNewGrade < -1) {
+                studentNewGrade = -1;
+            }
+            System.out.println("Student's new grade: " + studentNewGrade);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index is out of bounds. Please enter an index between 0 and 5.");
+        } catch (Exception e) {
+            System.out.println("Error has occurred in the program: " + e.getMessage());
+        }
+}
 
 }
 
