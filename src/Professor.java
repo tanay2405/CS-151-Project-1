@@ -206,7 +206,7 @@ public class Professor implements Person  {
     }
 
     @Override
-    public void submitAssignment(int index) {
+    public void submitAssignment(int index, Student[] studentsList) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'submitAssignment'");
     }
