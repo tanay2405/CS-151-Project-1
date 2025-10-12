@@ -91,7 +91,7 @@ public abstract class Student implements Person {
     public abstract String checkSchedule();
     
     
-    public void submitAssignment(int index) {
+    public void submitAssignment(int index, Student[] studentList) {
         validateIndex(index);
         if (courses[index] == null) {
             throw new IllegalStateException("No course scheduled at index: " + index);
