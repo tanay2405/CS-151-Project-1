@@ -87,7 +87,7 @@ public class FullTimeStudent extends Student {
         final int MAX = 6;
         System.out.println("Course options: ");
         for (Course c : courses) {
-            System.out.println(c.getCourseID());
+            System.out.println(c.getCourseName() + " ,ID: " + c.getCourseID());
         }
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses to drop. Press ENTER on course name to finish early.");
