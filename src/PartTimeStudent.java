@@ -50,8 +50,7 @@ public class PartTimeStudent extends Student {
     }
 
     @Override
-    public boolean addSchedule(Course course, Professor professor){
-        return true;
+    public void addSchedule(Course course, Professor professor){
     };
 
     @Override
@@ -60,8 +59,7 @@ public class PartTimeStudent extends Student {
     };
 
     @Override
-    public boolean deleteSchedule(int windex){
-        return true;
+    public void deleteSchedule(int index){
     };
 
     // NEW Methods (no implementations)
