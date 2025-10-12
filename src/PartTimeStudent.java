@@ -52,7 +52,7 @@ public class PartTimeStudent extends Student {
     
     //Method 1
     public void dropCourses() {
-        final int MAX = 4;
+        final int MAX = 6;
         showCourseAvailability();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses to drop. Press ENTER on course name to finish early.");
@@ -63,22 +63,22 @@ public class PartTimeStudent extends Student {
             if (course.isEmpty()) break;      
             if (checkIfCourseValid(course)) {
                 System.out.println("Removed: " + course);
-                this.getCourses()[count] = new Course();
-                this.getGrades()[count] = new Grade();
+                courses[count] = new Course();
+                grades[count] = new Grade();
             } else {
-                System.out.println("That course is already in your schedule. Try a different one.");
+                System.out.println("That course is not in your schedule. Try a different one.");
                 continue;
             }
             count++;
         }
         System.out.println("\nYou removed " + count + " course(s).");
     }
-
-    // Method 2
+    
+    //Method 2
     public void applyForCourses() {
-        final int MAX = 4;
+        final int MAX = 6;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter up to " + MAX + " courses. Press ENTER on course name to finish early."); 
+        System.out.println("Enter up to " + MAX + " courses. Press ENTER on course name to finish early.");
         int count = 0;
         while (count < MAX) {
             System.out.print("Course ID" + (count + 1) + ": ");
@@ -88,8 +88,7 @@ public class PartTimeStudent extends Student {
                 System.out.println("That course is already in your schedule. Try a different one.");
                 continue;
             }
-    
-            this.getCourses()[count] = getCourseObjectFromCourseID(course);
+            courses[count] = getCourseObjectFromCourseID(course);
             System.out.println("Added: " + course);
             count++;
         }
