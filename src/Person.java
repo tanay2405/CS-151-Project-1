@@ -52,6 +52,16 @@ public interface Person {
     public static Course c19 = new Course(1019, "ENGR 124", 3, 1530, false);
     public static Course c20 = new Course(1020, "ENGR 125", 4, 800, true);
     public static Course c21 = new Course(1021, "ENGR 126", 4, 900, true);
+
+    public static Professor DrSmith    = new Professor(10001, "Dr. Smith",   "smith@univ.edu",   1001, 1002, 1003);
+    public static Professor DrAlice    = new Professor(10002, "Dr. Alice",   "alice@univ.edu",   1004, 1005, 1006);
+    public static Professor DrBrown    = new Professor(10003, "Dr. Brown",   "brown@univ.edu",   1007, 1008, 1009);
+    public static Professor DrWilson   = new Professor(10004, "Dr. Wilson",  "wilson@univ.edu",  1010, 1011, 1012);
+    public static Professor DrPatel    = new Professor(10005, "Dr. Patel",   "patel@univ.edu",   1013, 1014, 1015);
+    public static Professor DrNguyen   = new Professor(10006, "Dr. Nguyen",  "nguyen@univ.edu",  1016, 1017, 1018);
+    public static Professor DrGarcia   = new Professor(10007, "Dr. Garcia",  "garcia@univ.edu",  1019, 1020, 1021);
+
+    
     
     public static Course[] coursesList = {
         c1, c2, c3, c4, c5,
@@ -62,6 +72,10 @@ public interface Person {
     public static List<Student> studentsList = new ArrayList<>(Arrays.asList( Aarav, Tanay, Srihan, 
     Maya, Priya, Jordan, Alex, Sam, Nikhil, Anya, Zoe, Liam, Noah, Emma, Olivia, Ethan, Mia, Sophia, 
     Ava, Lucas, Isabel, Mateo, Chloe, Arjun));
+
+    public static List<Professor> professorsList = new ArrayList<>(Arrays.asList(
+    DrSmith, DrAlice, DrBrown, DrWilson, DrPatel, DrNguyen,
+    DrGarcia ));
 
 
     
