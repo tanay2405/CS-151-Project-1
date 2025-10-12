@@ -48,8 +48,7 @@ public class FullTimeStudent extends Student {
 
     // INHERITED Methods (declare overrides; no implementations)
     @Override
-    public boolean addSchedule(Course course, Professor professor){
-        return true;
+    public void addSchedule(Course course, Professor professor){
     };
 
     @Override
@@ -58,8 +57,7 @@ public class FullTimeStudent extends Student {
     };
 
     @Override
-    public boolean deleteSchedule(int index){
-        return true;
+    public void deleteSchedule(int index){
     };
 
     // NEW Methods (no implementations)
