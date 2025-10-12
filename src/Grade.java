@@ -79,11 +79,17 @@ public class Grade {
     public double curveGrade(int gradeID)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a decimal number for curving grade: ");
-        double curveFactor = sc.nextDouble();
-        while (!sc.hasNextDouble()) {
-            System.out.println("Please enter a decimal number.");
-            sc.next();
+        double curveFactor;
+
+        while (true) {
+            System.out.println("Please enter a decimal number for curving grade: ");
+            try {
+                curveFactor = sc.nextDouble();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Input is not valid. Please enter a decimal number.");
+                sc.next(); 
+            }
         }
         double curvedGrade = gradeID * curveFactor;
         sc.close();
@@ -93,11 +99,17 @@ public class Grade {
     public int extraCredit(int gradeID)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter amount of extra credit points: ");
-        int extraPoints = sc.nextInt();
-        while (!sc.hasNextInt()) {
+        int extraPoints;
+        
+        while (true) {
             System.out.println("Please enter an integer number.");
-            sc.next();
+            try {
+                extraPoints = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Input is not valid. Please enter an integer number.");
+                sc.next(); 
+            }
         }
         int newGrade = gradeID + extraPoints;
         sc.close();
@@ -114,6 +126,7 @@ public class Grade {
 
     }
 }
+
 
 
 
