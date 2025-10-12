@@ -42,6 +42,12 @@ public abstract class Student implements Person {
         
     }
 
+    public void showCourseAvailability(){
+        for (Course c : coursesList) {
+            System.out.println(c.getCourseName() + " - " + c.getCourseID());
+        }
+    }
+
     //Method 1
     public double calculateGPA() {
         int count = 0;
