@@ -53,7 +53,10 @@ public class FullTimeStudent extends Student {
     //Method 1
     public void dropCourses() {
         final int MAX = 6;
-        showCourseAvailability();
+        System.out.println("Course options: ");
+        for (Course c : courses) {
+            System.out.println(c.getCourseID());
+        }
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses to drop. Press ENTER on course name to finish early.");
         int count = 0;
@@ -77,6 +80,8 @@ public class FullTimeStudent extends Student {
     //Method 2
     public void applyForCourses() {
         final int MAX = 6;
+        System.out.println("Course options: ");
+        showCourseAvailability();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses. Press ENTER on course name to finish early.");
         int count = 0;
