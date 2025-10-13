@@ -133,15 +133,15 @@ Installation Steps:
    ```cd CS-151-Project-1```
 2. Make sure the project directory appears like this:
 
-CS-151-Project-1/
-    src/
-        Course.java
-        Grade.java
-        Person.java
-        Student.java
-        FullTimeStudent.java
-        PartTimeStudent.java
-        Professor.java
+- CS-151-Project-1/
+    - src/
+        - Course.java
+        - Grade.java
+        - Person.java
+        - Student.java
+        - FullTimeStudent.java
+        - PartTimeStudent.java
+        - Professor.java
    
 3. Import project into IDE and Build/Compile the project 
 4. Run the Program:
