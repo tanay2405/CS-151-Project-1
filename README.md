@@ -22,13 +22,13 @@ The Academic Management System is a comprehensive Java-based program designed to
 
 ### Classes
 
-1. Person Interface
+**1. Person Interface**
 - Serves as the central contract for all people in the system
 - Defines the printInfo() method for displaying entity information
 - Contains static instances of all students, professors, and courses for system-wide access
 - Maintains three primary collections: studentsList, professorsList, and coursesList
 
-2. Student Abstract Class (implements Person)
+**2. Student Abstract Class (implements Person)**
 
 - Base class for all student types with shared functionality
 - Manages student core data: ID, name, email, GPA, and major
@@ -42,7 +42,7 @@ The Academic Management System is a comprehensive Java-based program designed to
 - checkSchedule(): Displays the current schedule with course times
 - createRoadmap(): Generates a major-specific course planning guide
 
-3. FullTimeStudent Class (extends Student)
+**3. FullTimeStudent Class (extends Student)**
 
 - Supports enrollment in up to 6 courses (COURSE_LIMIT = 6)
 - Implements all abstract methods from Student class
@@ -56,18 +56,18 @@ The Academic Management System is a comprehensive Java-based program designed to
 
 - Maintains a HashMap for schedule management and ArrayList for roadmap planning
 
-4. PartTimeStudent Class (extends Student)
+**4. PartTimeStudent Class (extends Student)**
 
 - Supports enrollment in up to 4 courses (COURSE_LIMIT = 4)
 - Implements all abstract methods and identical methods to FullTimeStudent but with adjusted limits
 - Shares the same core functionality with different capacity constraints
 
-5. Professor Class (implements Person)
+**5. Professor Class (implements Person)**
 
 - Manages professor information: ID, name, email, and up to 3 assigned courses they can teach
 - Uses HashMap to track office hours by their course
 
-Methods:
+  Methods:
 
 - approveStudent(): Professor verify and approve student enrollment into their course
 - dropStudent(): Professors remove students from their courses
@@ -78,23 +78,23 @@ Methods:
 - Implements verification system to ensure professor identity by inputting professorID before any actions
 - Includes exception handling for invalid inputs
 
-6. Course Class
+**6. Course Class**
 
 - Represents individual courses with properties: ID, name, credits, time, and pass/fail status
 - Immutable identifiers ensure data integrity
 - Time slots represented as integers (e.g., 530 = 5:30, 1400 = 14:00/2:00 PM)
 - Pass/fail boolean determines grading scheme
 
-7. Grade Class
+**7. Grade Class**
 
 - Manages grade representation and conversion
 
-**Grade ID system:**
+Grade ID system:
 - (-1): Not enrolled or Not approve yet
 - (0-100): Numeric grade
 - (>= 70): Passing grade
 
-Methods:
+  Methods:
 
 - convertGradeID(): Converts numeric grades to letter grades
 - convertGradeIDToPassFail(): Handles pass/fail conversion
@@ -148,8 +148,6 @@ Installation Steps:
    - Right click on Student.java
    - Select "Run Java"
 
-
-## Usage
 
 ## Usage
 
