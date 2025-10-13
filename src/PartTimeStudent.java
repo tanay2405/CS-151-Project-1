@@ -229,5 +229,15 @@ public class PartTimeStudent extends Student {
         return null;
     }
 
+    @Override  // toString method for PartTimeStudent class
+    public String toString() {
+        return "PartTimeStudent{ id: " + getStudID() + 
+        ", name: " + getName() + 
+        ", email:" + getEmail() + 
+        ", GPA:" + getGPA() + 
+        ", major:" + getMajor() + 
+        ", courseLimit: " + COURSE_LIMIT + " }";
+        }
+
 
 }
