@@ -223,6 +223,14 @@ public class Professor implements Person  {
         System.out.println(courseEX.getCourseName() + "| Office Hours: N/A");
     }
 
+    @Override       // toString method for Professor class
+    public String toString() {
+        return "Professor{ id: " + professorID + ", name: " + professorName + ", email: " + email +
+        " , courseID1: " + courseID1 + ", courseID2: " + courseID2 + ", courseID3: " + courseID3 + 
+        " , officeHours: " + officeHours + " }";
+    }
+    
+
     @Override
     public void printInfo() {
         System.out.println("Professor " + professorName + "'s Schedule:" );
