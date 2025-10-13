@@ -151,9 +151,23 @@ CS-151-Project-1/
 
 ## Contributions
 ### Tanay Allaparti
-
-### Aarav Baphna
+- Developed the **Professor** class including all its methods: approveStudent, dropStudent, add/remove office hours, and verification system.
+- Designed the **UML diagram** for the project.
+- Wrote and formatted the **README**.
+- Implemented **totalCredits()** method in FullTimeStudent and PartTimeStudent classes.
+- Made necessary edits across other classes to ensure integration and functionality.
 
 ### Srihan Cheemangunta
+- Developed the **Course** and **Grade** classes including grading logic and conversions.
+- Wrote **JUnit tests** for validating class functionality.
+- Implemented the **printInfo()** method in the Person interface.
+- Made necessary edits across other classes to ensure integration and functionality.
+
+### Aarav Baphna
+- Developed the abstract **Student** class, including core student data and GPA calculations.
+- Implemented **FullTimeStudent** and **PartTimeStudent** classes with their respective methods.
+- Developed the **changeMajor()** method in both student classes.
+- Created the **main class** for running the overall Academic Management System.
+- Made necessary edits across other classes to ensure integration and functionality.
 
 
