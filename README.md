@@ -209,14 +209,63 @@ Main Menu:
 
 Student enrolled successfully.
 Select an action:
-1 – Apply/Drop Courses
-2 – Manage Schedule
-3 – Graduation Info
-4 – Personal Info
+1 – Apply/Drop Courses,
+2 – Manage Schedule,
+3 – Graduation Info,
+4 – Personal Info,
+
+>1
+- Applying/Dropping Courses:
+- Enter 1 to add classes
+- Enter 2 to drop classes
+- Enter 3 to see Student info
 
 > 1
-- Apply for courses or drop courses
-- Enter course info...
+- Enter course IDs to apply for
+- Enter professor IDs for approval
+- Professor approves student for the course
+
+> 4
+- View Student info:
+- Displays enrolled courses, credits, professor info, and current GPA
+
+---
+
+> t
+- Enter Professor ID: 2001
+- Select an action:
+1 – Drop Office Hours,
+2 – Add Office Hours,
+3 – Drop Student,
+4 – View Info,
+
+> 2
+- Add office hours for specific course
+- Conflict detection ensures no overlapping times
+
+> 3
+- Drop a student from a course
+- Requires professor approval
+
+> 4
+- View professor info:
+- Displays assigned courses and scheduled office hours
+
+---
+
+> s
+- Enter Student ID: 1111111
+- Enter type (1=PartTime, 2=FullTime)
+
+Select an action:
+1 – Apply/Drop Courses,
+2 – Manage Schedule,
+3 – Graduation Info,
+4 – Personal Info,
+
+> 2
+- View schedule, add or delete courses in weekly timetable
+
 
 
 
