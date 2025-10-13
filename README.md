@@ -20,7 +20,7 @@ The Academic Management System is a comprehensive Java-based program designed to
 
 ## Design
 
-###Classes
+### Classes
 
 1. Person Interface
 - Serves as the central contract for all people in the system
@@ -150,6 +150,79 @@ Installation Steps:
 
 
 ## Usage
+
+## Usage
+
+The Academic Management System is a console-based Java application. Users can enroll students, manage course schedules, interact with professors, and track GPA/credits. Below is how to use the system:
+
+### Running the Program
+1. Open the project in your IDE (e.g., VS Code).
+2. Run the **Student.java** file.
+3. The console will display options for interacting with students and professors.
+
+### Console Menu Options
+
+**Main Menu:**
+- `e` – Enroll a new student (default Student ID: 1111111)
+- `t` – Access professor methods
+- `s` – Access existing student information
+
+**Student Actions (after enrolling or selecting a student):**
+1. Applying/Dropping Courses
+   - `1` – Apply for courses
+     - Enter professor IDs to request approval.
+   - `2` – Drop courses
+   - `3` – View student info
+2. Managing Class Schedule
+   - `1` – View current schedule
+   - `2` – Add courses to schedule
+   - `3` – Delete courses from schedule
+3. Graduation Info and Management
+   - `1` – Create and view academic roadmap
+   - `2` – View total credits earned
+   - `3` – View GPA
+4. Personal/Student Info
+   - `1` – Change major (requires GPA check)
+   - `2` – Display student information
+
+**Professor Actions:**
+- Enter professor ID to verify identity.
+- Options after login:
+  1. Drop office hours
+  2. Add office hours
+  3. Drop student from a course
+  4. View professor info
+
+**Navigation Tips:**
+- After each action, the program will prompt:
+  - Enter `CONT` to continue
+  - Enter `EXIT` to return to the main menu
+
+### Example Usage
+
+Main Menu:
+Enter 'e' to enroll a student
+Enter 't' for professor methods
+Enter 's' to access students
+
+> e
+Enter Student name: John
+Enter Student email: john@example.com
+Enter Student major: ComputerScience
+Enter Student type (1=PartTime, 2=FullTime): 2
+
+Student enrolled successfully.
+Select an action:
+1 – Apply/Drop Courses
+2 – Manage Schedule
+3 – Graduation Info
+4 – Personal Info
+
+> 1
+Apply for courses or drop courses
+Enter course info...
+
+
 
 ## Contributions
 ### Tanay Allaparti
