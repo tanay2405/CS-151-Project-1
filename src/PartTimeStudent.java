@@ -45,7 +45,7 @@ public class PartTimeStudent extends Student {
     public void deleteSchedule(int index) {
         Scanner sc = new Scanner(System.in);
     
-        System.out.println("Enter the course slot (1-6) to remove from viewable schedule: ");
+        System.out.println("Enter the course slot (1-4) to remove from viewable schedule: ");
         int userInput = sc.nextInt();
     
         int arrayIndex = userInput - 1;
