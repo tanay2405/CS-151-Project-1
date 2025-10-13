@@ -35,7 +35,7 @@ The Academic Management System is a comprehensive Java-based program designed to
 - Contains arrays for grades, professors, and courses (maximum 6 slots)
 - Implements GPA calculation with support for letter grades and pass/fail courses
 
-  **Abstract methods:**
+  Abstract methods:
   
 - addSchedule(): Populates a viewable schedule with enrolled courses and their time slots
 - deleteSchedule(): Removes a course from the viewable schedule display
@@ -47,7 +47,7 @@ The Academic Management System is a comprehensive Java-based program designed to
 - Supports enrollment in up to 6 courses (COURSE_LIMIT = 6)
 - Implements all abstract methods from Student class
 
- **Additional methods:**
+ Methods:
 
 - applyForCourses(): Allows student to apply for a course
 - dropCourses(): Unenrolls Student from the course
@@ -67,7 +67,7 @@ The Academic Management System is a comprehensive Java-based program designed to
 - Manages professor information: ID, name, email, and up to 3 assigned courses they can teach
 - Uses HashMap to track office hours by their course
 
-**Key methods:**
+Methods:
 
 - approveStudent(): Professor verify and approve student enrollment into their course
 - dropStudent(): Professors remove students from their courses
@@ -94,7 +94,7 @@ The Academic Management System is a comprehensive Java-based program designed to
 - (0-100): Numeric grade
 - (>= 70): Passing grade
 
-**Key Methods:**
+Methods:
 
 - convertGradeID(): Converts numeric grades to letter grades
 - convertGradeIDToPassFail(): Handles pass/fail conversion
@@ -132,15 +132,17 @@ Installation Steps:
    ```git clone https://github.com/tanay2405/CS-151-Project-1.git```
    ```cd CS-151-Project-1```
 2. Make sure the project directory appears like this:
+
 CS-151-Project-1/
-└── src/
-    ├── Course.java
-    ├── Grade.java
-    ├── Person.java
-    ├── Student.java
-    ├── FullTimeStudent.java
-    ├── PartTimeStudent.java
-    └── Professor.java
+    src/
+        Course.java
+        Grade.java
+        Person.java
+        Student.java
+        FullTimeStudent.java
+        PartTimeStudent.java
+        Professor.java
+   
 3. Import project into IDE and Build/Compile the project 
 4. Run the Program:
    - Right click on Student.java
