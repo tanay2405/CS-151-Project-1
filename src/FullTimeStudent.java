@@ -228,4 +228,14 @@ public class FullTimeStudent extends Student {
         }
         return null;
     }
+
+    @Override // toString method for FullTimeStudent class
+    public String toString() {
+        return "FullTimeStudent{ id: " + getStudID() + 
+        ", name: " + getName() + 
+        ", email: " + getEmail() + 
+        ", GPA: " + getGPA() + 
+        ", major: " + getMajor() + 
+        ", courseLimit: " + COURSE_LIMIT + " }";
+    }
 }
