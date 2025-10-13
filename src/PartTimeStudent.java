@@ -88,7 +88,7 @@ public class PartTimeStudent extends Student {
     
     //Method 1
     public void dropCourses() {
-        final int MAX = 6;
+        final int MAX = 4;
         System.out.println("Course options: ");
         for (Course c : courses) {
             System.out.println(c.getCourseName() + " ,ID: " + c.getCourseID());
@@ -117,7 +117,7 @@ public class PartTimeStudent extends Student {
     public void applyForCourses() {
         System.out.println("Course options: ");
         showCourseAvailability();
-        final int MAX = 6;
+        final int MAX = 4;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter up to " + MAX + " courses. Press ENTER on course name to finish early.");
         int count = 0;
