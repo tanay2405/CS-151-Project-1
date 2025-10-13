@@ -21,95 +21,99 @@ The Academic Management System is a comprehensive Java-based program designed to
 ## Design
 
 ###Classes
-1. Person Interface
 
-Serves as the central contract for all people in the system
-Defines the printInfo() method for displaying entity information
-Contains static instances of all students, professors, and courses for system-wide access
-Maintains three primary collections: studentsList, professorsList, and coursesList
+1. Person Interface
+- Serves as the central contract for all people in the system
+- Defines the printInfo() method for displaying entity information
+- Contains static instances of all students, professors, and courses for system-wide access
+- Maintains three primary collections: studentsList, professorsList, and coursesList
 
 2. Student Abstract Class (implements Person)
 
-Base class for all student types with shared functionality
-Manages student core data: ID, name, email, GPA, and major
-Contains arrays for grades, professors, and courses (maximum 6 slots)
-Implements GPA calculation with support for letter grades and pass/fail courses
-Abstract methods: addSchedule(), deleteSchedule(), checkSchedule(), createRoadmap()
+- Base class for all student types with shared functionality
+- Manages student core data: ID, name, email, GPA, and major
+- Contains arrays for grades, professors, and courses (maximum 6 slots)
+- Implements GPA calculation with support for letter grades and pass/fail courses
 
-addSchedule(): Populates a viewable schedule with enrolled courses and their time slots
-deleteSchedule(): Removes a course from the viewable schedule display
-checkSchedule(): Displays the current schedule with course times
-createRoadmap(): Generates a major-specific course planning guide
+  **Abstract methods:**
+  
+- addSchedule(): Populates a viewable schedule with enrolled courses and their time slots
+- deleteSchedule(): Removes a course from the viewable schedule display
+- checkSchedule(): Displays the current schedule with course times
+- createRoadmap(): Generates a major-specific course planning guide
 
 3. FullTimeStudent Class (extends Student)
 
-Supports enrollment in up to 6 courses (COURSE_LIMIT = 6)
-Implements all abstract methods from Student class
-Additional methods:
+- Supports enrollment in up to 6 courses (COURSE_LIMIT = 6)
+- Implements all abstract methods from Student class
 
-applyForCourses(): Allows student to apply for a course
-dropCourses(): Unenrolls Student from the course
-changeMajor(): Switch majors with GPA validation (requires GPA ≥ 3.2)
-totalCredits(): Calculate the amount of credits that are being taken and amount of credits from only passing courses.
+ **Additional methods:**
 
-Maintains a HashMap for schedule management and ArrayList for roadmap planning
+- applyForCourses(): Allows student to apply for a course
+- dropCourses(): Unenrolls Student from the course
+- changeMajor(): Switch majors with GPA validation (requires GPA ≥ 3.2)
+- totalCredits(): Calculate the amount of credits that are being taken and amount of credits from only passing courses.
+
+- Maintains a HashMap for schedule management and ArrayList for roadmap planning
 
 4. PartTimeStudent Class (extends Student)
 
-Supports enrollment in up to 4 courses (COURSE_LIMIT = 4)
-Implements all abstract methods and identical methods to FullTimeStudent but with adjusted limits
-Shares the same core functionality with different capacity constraints
+- Supports enrollment in up to 4 courses (COURSE_LIMIT = 4)
+- Implements all abstract methods and identical methods to FullTimeStudent but with adjusted limits
+- Shares the same core functionality with different capacity constraints
 
 5. Professor Class (implements Person)
 
-Manages professor information: ID, name, email, and up to 3 assigned courses they can teach
-Uses HashMap to track office hours by their course
-Key methods:
+- Manages professor information: ID, name, email, and up to 3 assigned courses they can teach
+- Uses HashMap to track office hours by their course
 
-approveStudent(): Professor verify and approve student enrollment into their course
-dropStudent(): Professors remove students from their courses
-addOfficeHours(): Set office hours with any conflict detection with other course or office hour timings.
-removeOfficeHours(): Remove any existing office hours
+**Key methods:**
+
+- approveStudent(): Professor verify and approve student enrollment into their course
+- dropStudent(): Professors remove students from their courses
+- addOfficeHours(): Set office hours with any conflict detection with other course or office hour timings.
+- removeOfficeHours(): Remove any existing office hours
 
 
-Implements verification system to ensure professor identity by inputting professorID before any actions
-Includes exception handling for invalid inputs
+- Implements verification system to ensure professor identity by inputting professorID before any actions
+- Includes exception handling for invalid inputs
 
 6. Course Class
 
-Represents individual courses with properties: ID, name, credits, time, and pass/fail status
-Immutable identifiers ensure data integrity
-Time slots represented as integers (e.g., 530 = 5:30, 1400 = 14:00/2:00 PM)
-Pass/fail boolean determines grading scheme
+- Represents individual courses with properties: ID, name, credits, time, and pass/fail status
+- Immutable identifiers ensure data integrity
+- Time slots represented as integers (e.g., 530 = 5:30, 1400 = 14:00/2:00 PM)
+- Pass/fail boolean determines grading scheme
 
 7. Grade Class
 
-Manages grade representation and conversion
-Grade ID system:
--1: Not enrolled or Not approve yet
-0-100: Numeric grade
->= 70: Passing grade
+- Manages grade representation and conversion
 
-Methods:
+**Grade ID system:**
+- (-1): Not enrolled or Not approve yet
+- (0-100): Numeric grade
+- (>= 70): Passing grade
 
-convertGradeID(): Converts numeric grades to letter grades
-convertGradeIDToPassFail(): Handles pass/fail conversion
-curveGrade(): Apply curve to grades
-extraCredit(): Adds extra credit points
+**Key Methods:**
+
+- convertGradeID(): Converts numeric grades to letter grades
+- convertGradeIDToPassFail(): Handles pass/fail conversion
+- curveGrade(): Apply curve to grades
+- extraCredit(): Adds extra credit points
 
 
 ### Exception Handling:
 
-Input validation with InputMismatchException handling
-NoSuchElementException catching for scanner operations
-Added speific error messages for user guidance
+- Input validation with InputMismatchException handling
+- NoSuchElementException catching for scanner operations
+- Added speific error messages for user guidance
 
 ### Data Structures:
 
-Arrays for fixed-size collections (courses, grades, professors)
-HashMap for key-value mappings (schedules, office hours)
-ArrayList for dynamic collections (roadmap courses, entity lists)
-Lists in the Person interface (all students, all courses, all professors)
+- Arrays for fixed-size collections (courses, grades, professors)
+- HashMap for key-value mappings (schedules, office hours)
+- ArrayList for dynamic collections (roadmap courses, entity lists)
+- Lists in the Person interface (all students, all courses, all professors)
 
 ### Important Access Control:
 - Professor methods require ID verification before execution
