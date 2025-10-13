@@ -153,8 +153,6 @@ Installation Steps:
 
 ## Usage
 
-The Academic Management System is a console-based Java application. Users can enroll students, manage course schedules, interact with professors, and track GPA/credits. Below is how to use the system:
-
 ### Running the Program
 1. Open the project in your IDE (e.g., VS Code).
 2. Run the **Student.java** file.
@@ -201,15 +199,15 @@ The Academic Management System is a console-based Java application. Users can en
 ### Example Usage
 
 Main Menu:
-Enter 'e' to enroll a student
-Enter 't' for professor methods
-Enter 's' to access students
+- Enter 'e' to enroll a student
+- Enter 't' for professor methods
+- Enter 's' to access students
 
 > e
-Enter Student name: John
-Enter Student email: john@example.com
-Enter Student major: ComputerScience
-Enter Student type (1=PartTime, 2=FullTime): 2
+- Enter Student name: John
+- Enter Student email: john@example.com
+- Enter Student major: ComputerScience
+- Enter Student type (1=PartTime, 2=FullTime): 2
 
 Student enrolled successfully.
 Select an action:
@@ -219,8 +217,8 @@ Select an action:
 4 – Personal Info
 
 > 1
-Apply for courses or drop courses
-Enter course info...
+- Apply for courses or drop courses
+- Enter course info...
 
 
 
