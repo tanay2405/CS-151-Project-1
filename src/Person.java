@@ -77,6 +77,14 @@ public interface Person {
     DrSmith, DrAlice, DrBrown, DrWilson, DrPatel, DrNguyen,
     DrGarcia ));
 
+    public static final List<FullTimeStudent> FULL_TIME_STUDENTS = new ArrayList<>(
+        Arrays.asList(Aarav, Tanay, Srihan, Maya, Priya, Jordan, Alex, Sam, Nikhil, Anya, Zoe, Liam)
+    );
+
+    public static final List<PartTimeStudent> PART_TIME_STUDENTS = new ArrayList<>(
+        Arrays.asList(Noah, Emma, Olivia, Ethan, Mia, Sophia, Ava, Lucas, Isabel, Mateo, Chloe, Arjun)
+    );
+
 
     
     /**
