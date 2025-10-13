@@ -155,12 +155,14 @@ CS-151-Project-1/
 - Designed the **UML diagram** for the project.
 - Wrote and formatted the **README**.
 - Implemented **totalCredits()** method in FullTimeStudent and PartTimeStudent classes.
+- Created the **professor list** used in the Person interface.
 - Made necessary edits across other classes to ensure integration and functionality.
 
 ### Srihan Cheemangunta
 - Developed the **Course** and **Grade** classes including grading logic and conversions.
 - Wrote **JUnit tests** for validating class functionality.
 - Implemented the **printInfo()** method in the Person interface.
+- Implemented **exception handling** across the system (InputMismatchException, NoSuchElementException, and other input validation).
 - Made necessary edits across other classes to ensure integration and functionality.
 
 ### Aarav Baphna
@@ -168,6 +170,7 @@ CS-151-Project-1/
 - Implemented **FullTimeStudent** and **PartTimeStudent** classes with their respective methods.
 - Developed the **changeMajor()** method in both student classes.
 - Created the **main class** for running the overall Academic Management System.
+-  Created the **student list** and **course list** used in the Person interface.
 - Made necessary edits across other classes to ensure integration and functionality.
 
 
