@@ -128,7 +128,14 @@ public class Grade {
         }
 
     }
+
+    @Override  // toString method for Grade class
+    public String toString() {
+        return "Grade{ id: " + gradeID +
+        ", Pass or Fail: " + gradeLetterPassFail + " }";
+    }
 }
+
 
 
 
