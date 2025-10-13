@@ -66,4 +66,13 @@ public class Course {
         return passFail;
     }
 
+    @Override  // toString method for Course class
+    public String toString() {
+        return "Course{ id: " + courseID +
+        ", name: " + courseName + 
+        ", credits: " + credits + 
+        ", time: " + time +
+        ", passFail: " + passFail + " }";
+    }
+
 }
