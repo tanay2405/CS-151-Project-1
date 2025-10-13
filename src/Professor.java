@@ -229,7 +229,16 @@ public class Professor implements Person  {
         " , courseID1: " + courseID1 + ", courseID2: " + courseID2 + ", courseID3: " + courseID3 + 
         " , officeHours: " + officeHours + " }";
     }
-    
+
+    @Override     // toString method for Student class
+    public String toString()
+    {
+        return "Student{ id: " + studID + 
+        ", name: " + name + 
+        ", email: " + email + 
+        ", GPA: " + GPA + 
+        ", major: " + major + " }";
+    }
 
     @Override
     public void printInfo() {
