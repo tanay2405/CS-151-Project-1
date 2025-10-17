@@ -8,6 +8,7 @@ public class Course {
     private int time;
     private boolean passFail;
 
+
     public Course(int courseID, String courseName, int credits, int time, boolean passFail) {
         setCourseID(courseID);
         setCourseName(courseName);
