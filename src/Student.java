@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 
 public abstract class Student implements Person {
@@ -22,7 +21,7 @@ public abstract class Student implements Person {
     public final Course[] courses = {new Course(), new Course(), new Course(), new Course(), new Course(), new Course()};
 
     public Map<String, Integer> Schedule = new HashMap<>();
-    public List<Course> roadmapCourseList = new ArrayList<>(); 
+    public List<Course> roadmapCourseList = new ArrayList<>();
 
     protected Student(Integer studID, String name, String email, String major) {
         if (studID == null) throw new IllegalArgumentException("studID cannot be null");
@@ -35,22 +34,17 @@ public abstract class Student implements Person {
 
     // MAIN METHOD
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         while(true) {
             System.out.println("  -  Enroll Student (Enter e for enroll) (Default SID is 1111111)  -  ");
             System.out.println("  -  Professor Methods (Enter t to access)  -  ");
             System.out.println("  -  Access Students (Enter s to access)  -  ");
-            String studentCheck = sc.next();
+            String studentCheck = UserInput.readNextLine("Enter your choice: ");
             if (studentCheck.equals("e") || studentCheck.equals("E")){
 
-                System.out.println("Enter Student name: ");
-                String newStudentName = sc.next();
-                System.out.println("Enter Student email: ");
-                String newStudentEmail = sc.next();
-                System.out.println("Enter Student major (CS, CMPE, or ENGR): ");
-                String newStudentMajor = sc.next();
-                System.out.println("Enter Student type: (1 for PartTimeMajor, 2 for FullTimeMajor)");
-                int newStudentType = sc.nextInt();
+                String newStudentName = UserInput.readNextLine("Enter Student name: ");
+                String newStudentEmail = UserInput.readNextLine("Enter Student email: ");
+                String newStudentMajor = UserInput.readNextLine("Enter Student major (CS, CMPE, or ENGR): ");
+                int newStudentType = UserInput.readNextInt("Enter Student type (1 for PartTimeMajor, 2 for FullTimeMajor): ");
                 if(newStudentType == 1) {
                     PartTimeStudent currentPartStud = new PartTimeStudent(1111111, newStudentName, newStudentEmail, newStudentMajor);
                     studentsList.add(currentPartStud);
@@ -61,11 +55,11 @@ public abstract class Student implements Person {
                         System.out.println("Enter 2 for Managing Class Schedule: ");
                         System.out.println("Enter 3 for Graduation Info and Management: ");
                         System.out.println("Enter 4 for Personal/Student Info and Management: ");
-                        int d1 = sc.nextInt();
+                        int d1 = UserInput.readNextInt("Enter your choice: ");
                         if (d1 == 1) {
                             ApplyingDroppingCourses(currentPartStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -73,8 +67,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 2) {
                             ManagingClassSchedule(currentPartStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -82,8 +76,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 3) {
                             GraduationIM(currentPartStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -91,8 +85,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 4) {
                             PersonalIM(currentPartStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -113,11 +107,11 @@ public abstract class Student implements Person {
                         System.out.println("Enter 2 for Managing Class Schedule: ");
                         System.out.println("Enter 3 for Graduation Info and Management: ");
                         System.out.println("Enter 4 for Personal/Student Info and Management: ");
-                        int d1 = sc.nextInt();
+                        int d1 = UserInput.readNextInt("Enter your choice: ");
                         if (d1 == 1) {
                             ApplyingDroppingCourses(currentFullStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -125,8 +119,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 2) {
                             ManagingClassSchedule(currentFullStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -134,8 +128,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 3) {
                             GraduationIM(currentFullStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -143,8 +137,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 4) {
                             PersonalIM(currentFullStud);
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String c1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(c1.equals("EXIT")){
                                 break;
                             } else {
@@ -157,21 +151,20 @@ public abstract class Student implements Person {
                     }
                 }
             } else if (studentCheck.equals("t") || studentCheck.equals("T")) {
-                System.out.println("Enter Professor ID");
-                int p1 = sc.nextInt();
+                int p1 = UserInput.readNextInt("Enter Professor ID: ");
                 int count = 0;
                 for (Professor p : professorsList) {
                     if (p.getProfessorID() == p1) {
-                        System.out.println("Enter 1 to drop office hours, Enter 2 to add office hours, Enter 3 to drop Student, Enter 4 to view info: ");
+                        System.out.println("Enter 1 to drop office hours, Enter 2 to add office hours, Enter 3 to drop Student, Enter 4 to view info");
                         break;
                     }
                     count++;
                 }
-                int o1 = sc.nextInt();
+                int o1 = UserInput.readNextInt("Enter your choice: ");
                 if(o1 == 1) {
                     professorsList.get(count).removeOfficeHours();
-                    System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                    String c1 = sc.next();
+                    System.out.println("Would you like to continue or exit to MAIN?");
+                    String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                     if(c1.equals("EXIT")){
                         break;
                     } else {
@@ -179,8 +172,8 @@ public abstract class Student implements Person {
                     }
                 } else if(o1 == 2) {
                     professorsList.get(count).addOfficeHours();
-                    System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                    String c1 = sc.next();
+                    System.out.println("Would you like to continue or exit to MAIN?");
+                    String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                     if(c1.equals("EXIT")){
                         break;
                     } else {
@@ -188,8 +181,8 @@ public abstract class Student implements Person {
                     }
                 } else if (o1 == 3) {
                     professorsList.get(count).dropStudent();
-                    System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                    String c1 = sc.next();
+                    System.out.println("Would you like to continue or exit to MAIN?");
+                    String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                     if(c1.equals("EXIT")){
                         break;
                     } else {
@@ -197,8 +190,8 @@ public abstract class Student implements Person {
                     }
                 } else if (o1 == 4) {
                     professorsList.get(count).printInfo();
-                    System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                    String c1 = sc.next();
+                    System.out.println("Would you like to continue or exit to MAIN?");
+                    String c1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                     if(c1.equals("EXIT")){
                         break;
                     } else {
@@ -210,10 +203,8 @@ public abstract class Student implements Person {
                 }
 
             } else if(studentCheck.equals("s") || studentCheck.equals("S")) {
-                System.out.println("Enter Student ID");
-                int s1 = sc.nextInt();
-                System.out.println("Enter 1 if it's a PartTime Student, 2 if it's a FullTime Student");
-                int c1 = sc.nextInt();
+                int s1 = UserInput.readNextInt("Enter Student ID: ");
+                int c1 = UserInput.readNextInt("Enter 1 if it's a PartTime Student, 2 if it's a FullTime Student: ");
                 if (c1 == 1) {
                     int count = 0;
                     for (PartTimeStudent s : PART_TIME_STUDENTS) {
@@ -228,11 +219,11 @@ public abstract class Student implements Person {
                         System.out.println("Enter 2 for Managing Class Schedule: ");
                         System.out.println("Enter 3 for Graduation Info and Management: ");
                         System.out.println("Enter 4 for Personal/Student Info and Management: ");
-                        int d1 = sc.nextInt();
+                        int d1 = UserInput.readNextInt("Enter your choice: ");
                         if (d1 == 1) {
                             ApplyingDroppingCourses(PART_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -240,8 +231,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 2) {
                             ManagingClassSchedule(PART_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -249,8 +240,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 3) {
                             GraduationIM(PART_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -258,8 +249,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 4) {
                             PersonalIM(PART_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -284,11 +275,11 @@ public abstract class Student implements Person {
                         System.out.println("Enter 2 for Managing Class Schedule: ");
                         System.out.println("Enter 3 for Graduation Info and Management: ");
                         System.out.println("Enter 4 for Personal/Student Info and Management: ");
-                        int d1 = sc.nextInt();
+                        int d1 = UserInput.readNextInt("Enter your choice: ");
                         if (d1 == 1) {
                             ApplyingDroppingCourses(FULL_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -296,8 +287,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 2) {
                             ManagingClassSchedule(FULL_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -305,8 +296,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 3) {
                             GraduationIM(FULL_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -314,8 +305,8 @@ public abstract class Student implements Person {
                             }
                         } else if (d1 == 4) {
                             PersonalIM(FULL_TIME_STUDENTS.get(count));
-                            System.out.println("Would you like to continue or exit to MAIN? (Enter EXIT to exit, Enter CONT to continue)");
-                            String g1 = sc.next();
+                            System.out.println("Would you like to continue or exit to MAIN?");
+                            String g1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                             if(g1.equals("EXIT")){
                                 break;
                             } else {
@@ -327,8 +318,8 @@ public abstract class Student implements Person {
                         }
                     }
                 }
-                System.out.println("Would you like to continue or exit to HOME PAGE? (Enter EXIT to exit, Enter CONT to continue)");
-                String h1 = sc.next();
+                System.out.println("Would you like to continue or exit to HOME PAGE?");
+                String h1 = UserInput.readNextLine("Enter EXIT to exit, Enter CONT to continue: ");
                 if(h1.equals("EXIT")){
                     break;
                 } else {
@@ -339,18 +330,17 @@ public abstract class Student implements Person {
                 continue;
             }
         }
-        
+
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////
 
-    
+
     private static void PersonalIM(PartTimeStudent currentPartStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to change major: ");
-        System.out.println("Enter 2 to see Student info: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to change major");
+        System.out.println("Enter 2 to see Student info");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentPartStud.changeMajor();
         } else if (d1 == 2) {
@@ -359,12 +349,11 @@ public abstract class Student implements Person {
     }
 
     private static void GraduationIM(PartTimeStudent currentPartStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to create and view roadmap: ");
-        System.out.println("Enter 2 to see all credits: ");
-        System.out.println("Enter 3 to see GPA: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to create and view roadmap");
+        System.out.println("Enter 2 to see all credits");
+        System.out.println("Enter 3 to see GPA");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentPartStud.createRoadmap(currentPartStud.getMajor());
             currentPartStud.showCourseRoadmap();
@@ -377,36 +366,32 @@ public abstract class Student implements Person {
     }
 
     private static void ManagingClassSchedule(PartTimeStudent currentPartStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to view schedule: ");
-        System.out.println("Enter 2 to create schedule: ");
-        System.out.println("Enter 3 to delete schedule: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to view schedule");
+        System.out.println("Enter 2 to create schedule");
+        System.out.println("Enter 3 to delete schedule");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentPartStud.checkSchedule();
         } else if (d1 == 2) {
             currentPartStud.addSchedule();
         } else if (d1 == 3) {
-            System.out.println("What index do u want to remove?: ");
-            int d2 = sc.nextInt();
+            int d2 = UserInput.readNextInt("What index do u want to remove?: ");
             currentPartStud.deleteSchedule(d2);
         }
     }
 
     private static void ApplyingDroppingCourses(PartTimeStudent currentPartStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to add classes: ");
-        System.out.println("Enter 2 to drop classes: ");
-        System.out.println("Enter 3 to see Student info: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to add classes");
+        System.out.println("Enter 2 to drop classes");
+        System.out.println("Enter 3 to see Student info");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentPartStud.applyForCourses();
             System.out.println("Enter Professors for your Courses");
             while(true) {
-                System.out.println("Enter professor ID (Enter EXIT when done): ");
-                String p1 = sc.next();
+                String p1 = UserInput.readNextLine("Enter professor ID (Enter EXIT when done): ");
                 if(p1.equals("EXIT")) {
                     break;
                 }
@@ -429,13 +414,12 @@ public abstract class Student implements Person {
         }
     }
 
-    
+
     private static void PersonalIM(FullTimeStudent currentFullStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to change major: ");
-        System.out.println("Enter 2 to see Student info: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to change major");
+        System.out.println("Enter 2 to see Student info");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentFullStud.changeMajor();
         } else if (d1 == 2) {
@@ -444,12 +428,11 @@ public abstract class Student implements Person {
     }
 
     private static void GraduationIM(FullTimeStudent currentFullStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to create and view roadmap: ");
-        System.out.println("Enter 2 to see all credits: ");
-        System.out.println("Enter 3 to see GPA: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to create and view roadmap");
+        System.out.println("Enter 2 to see all credits");
+        System.out.println("Enter 3 to see GPA");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentFullStud.createRoadmap(currentFullStud.getMajor());
             currentFullStud.showCourseRoadmap();
@@ -462,37 +445,33 @@ public abstract class Student implements Person {
     }
 
     private static void ManagingClassSchedule(FullTimeStudent currentFullStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to view schedule: ");
-        System.out.println("Enter 2 to create schedule: ");
-        System.out.println("Enter 3 to delete schedule: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to view schedule");
+        System.out.println("Enter 2 to create schedule");
+        System.out.println("Enter 3 to delete schedule");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentFullStud.checkSchedule();
         } else if (d1 == 2) {
             currentFullStud.addSchedule();
         } else if (d1 == 3) {
-            System.out.println("What index do u want to remove?: ");
-            int d2 = sc.nextInt();
+            int d2 = UserInput.readNextInt("What index do u want to remove?: ");
             currentFullStud.deleteSchedule(d2);
         }
     }
 
     private static void ApplyingDroppingCourses(FullTimeStudent currentFullStud) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What would you like to do: ");
-        System.out.println("Enter 1 to add classes: ");
-        System.out.println("Enter 2 to drop classes: ");
-        System.out.println("Enter 3 to see Student info: ");
-        int d1 = sc.nextInt();
+        System.out.println("What would you like to do");
+        System.out.println("Enter 1 to add classes");
+        System.out.println("Enter 2 to drop classes");
+        System.out.println("Enter 3 to see Student info");
+        int d1 = UserInput.readNextInt("Enter your choice: ");
         if (d1 == 1) {
             currentFullStud.applyForCourses();
             System.out.println("Enter Professors for your Courses");
-            
+
             while(true) {
-                System.out.println("Enter professor ID (Enter EXIT when done): ");
-                String p1 = sc.next();
+                String p1 = UserInput.readNextLine("Enter professor ID (Enter EXIT when done): ");
                 if(p1.equals("EXIT")) {
                     break;
                 }
@@ -539,7 +518,7 @@ public abstract class Student implements Person {
             count++;
         }
         for (Double pointer : list) {
-            
+
             total += pointer;
         }
         this.setGPA(total/list.size());
@@ -555,11 +534,11 @@ public abstract class Student implements Person {
     // Method 4
     public abstract void createRoadmap(String major);
 
-    
+
     public abstract String checkSchedule();
-    
-    
-    
+
+
+
     @Override
     public void printInfo() {
         System.out.println("Student Info: ");
@@ -567,7 +546,7 @@ public abstract class Student implements Person {
 
         Course[] studentEnrolled = this.getCourses();
         Professor[] studentProfessors = this.getProfessors();
-        Grade[] studentGrades = this.getGrades();   
+        Grade[] studentGrades = this.getGrades();
         boolean hasCoursesAvail = false;
         int i = 0;
 
@@ -584,13 +563,13 @@ public abstract class Student implements Person {
                 if (studentGrades != null && i < studentGrades.length && studentGrades[i] != null) {
                     Integer gradeValue = studentGrades[i].getGradeID();
                     gradetoStudent = gradeValue.toString();
-                    
+
                 }
 
-                System.out.println("Courses enrolled in: " + c.getCourseName() + " (" + c.getCourseID() + "), " 
-                + "Credits: " + c.getCredits() + ", Time: " + c.getTime() + ", "
-                + "Professor: " + proftoStudent + 
-                  ", Grade: " + gradetoStudent);
+                System.out.println("Courses enrolled in: " + c.getCourseName() + " (" + c.getCourseID() + "), "
+                        + "Credits: " + c.getCredits() + ", Time: " + c.getTime() + ", "
+                        + "Professor: " + proftoStudent +
+                        ", Grade: " + gradetoStudent);
 
             }
             i++;
@@ -632,7 +611,7 @@ public abstract class Student implements Person {
     public void setMajor(String major) {this.major = major;}
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
-    public void setGPA(Double GPA) {this.GPA = GPA; } 
+    public void setGPA(Double GPA) {this.GPA = GPA; }
 
     public Grade[] getGrades() { return Arrays.copyOf(grades, grades.length); }
     public Professor[] getProfessors() { return Arrays.copyOf(professors, professors.length); }
