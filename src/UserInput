@@ -1,0 +1,55 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class UserInput {
+    private static final Scanner scanner = new Scanner(System.in);
+
+    private UserInput() {}
+
+    public static String readNextLine(String userPrompt) {
+        while (true) {
+            System.out.print(userPrompt);
+            try {
+                String userInput = scanner.nextLine();
+
+                if (userInput.equalsIgnoreCase("exit")) {
+                    System.out.println("Exiting the system.");
+                    scanner.close();
+                    System.exit(0);
+                }
+                if (userInput.trim().isEmpty()) {
+                    throw new Exception("Please enter a String or type 'exit' to quit.");
+                }
+                return userInput;
+            } catch(InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a String or type 'exit' to quit.");
+                scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+    }
+
+    public static int readNextInt(String userPrompt) {
+        while (true) {
+            System.out.print(userPrompt);
+            try {
+                String userInput = scanner.nextLine();
+                if (userInput.equalsIgnoreCase("exit")) {
+                    System.out.println("Exiting the system.");
+                    scanner.close();
+                    System.exit(0);
+                }
+                if (userInput.trim().isEmpty()) {
+                    throw new Exception("Please enter a number or type 'exit' to quit.");
+                }
+                return Integer.parseInt(userInput);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number. Please enter a valid number or type 'exit' to quit.");
+                scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+    }
+}
